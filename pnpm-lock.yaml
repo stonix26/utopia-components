@@ -27,7 +27,7 @@ importers:
   apps/docs:
     dependencies:
       '@utopia/accordion':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/accordion
       '@utopia/button':
         specifier: workspace:*
