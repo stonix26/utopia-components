@@ -1,5 +1,8 @@
+import AccordionTwPreset from "@utopia/accordion/tw-keyframes";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  presets: [AccordionTwPreset],
   content: [
     "../../packages/**/src/**/*.{js,ts,jsx,tsx}",
     "./stories/**/*.{ts,tsx,mdx}",
@@ -18,11 +21,11 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         primary: "hsl(var(--primary))",
-        'primary-foreground': "hsl(var(--primary-foreground))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
         secondary: "hsl(var(--secondary))",
-        'secondary-foreground': "hsl(var(--secondary-foreground))",
+        "secondary-foreground": "hsl(var(--secondary-foreground))",
         destructive: "hsl(var(--destructive))",
-        'destructive-foreground': "hsl(var(--destructive-foreground))",
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
         ring: "hsl(var(--ring))",
         radius: "hsl(var(--radius))",
         warning: "hsl(var(--warning))",
