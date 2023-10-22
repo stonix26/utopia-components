@@ -26,8 +26,12 @@ const config = {
       resolve: {
         alias: [
           {
-            find: "ui",
-            replacement: resolve(__dirname, "../../../packages/ui/"),
+            find: "@utopia/button",
+            replacement: resolve(__dirname, "../../../packages/button/"),
+          },
+          {
+            find: "@utopia/classnames",
+            replacement: resolve(__dirname, "../../../packages/classnames/"),
           },
         ],
       },

@@ -10,10 +10,9 @@
     "lint": "eslint ./stories/*.stories.tsx"
   },
   "dependencies": {
-    "@utopia/button": "workspace:^",
+    "@utopia/button": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^7.5.1",

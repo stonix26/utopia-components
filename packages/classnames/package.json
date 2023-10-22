@@ -1,6 +1,6 @@
 {
   "name": "@utopia/classnames",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -26,6 +26,6 @@
     "typescript": "^5.2.2"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://utopia-packages.onrender.com/"
   }
 }

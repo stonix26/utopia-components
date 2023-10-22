@@ -27,7 +27,7 @@ importers:
   apps/docs:
     dependencies:
       '@utopia/button':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/button
       react:
         specifier: ^18.2.0
@@ -35,9 +35,6 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-      ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
     devDependencies:
       '@storybook/addon-actions':
         specifier: ^7.5.1
@@ -160,30 +157,6 @@ importers:
         version: 0.6.13(eslint@8.48.0)(typescript@5.2.2)
 
   packages/tsconfig: {}
-
-  packages/ui:
-    devDependencies:
-      '@types/react':
-        specifier: ^18.0.9
-        version: 18.0.26
-      '@types/react-dom':
-        specifier: ^18.0.4
-        version: 18.0.9
-      eslint-config-custom:
-        specifier: workspace:*
-        version: link:../eslint-config-custom
-      react:
-        specifier: ^18.1.0
-        version: 18.2.0
-      tsconfig:
-        specifier: workspace:*
-        version: link:../tsconfig
-      tsup:
-        specifier: ^5.10.1
-        version: 5.12.9(typescript@5.2.2)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
 
 packages:
 
