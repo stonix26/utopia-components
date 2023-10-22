@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "ui";
+import { Button } from "@utopia/button";
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Button>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
+export const Default: Story = {
   render: (props) => (
     <Button
       {...props}
@@ -36,11 +36,5 @@ export const Primary: Story = {
   args: {
     children: "Hello",
     type: "button",
-    style: {
-      color: "blue",
-      border: "1px solid gray",
-      padding: 10,
-      borderRadius: 10,
-    },
   },
 };
