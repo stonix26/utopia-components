@@ -21,20 +21,11 @@ type Story = StoryObj<typeof Button>;
  * to learn how to use render functions.
  */
 export const Default: Story = {
-  render: (props) => (
-    <Button
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Turborepo!");
-      }}
-    >
-      Hello
-    </Button>
-  ),
+  render: (props) => <Button {...props} />,
   name: "Button",
   args: {
     children: "Hello",
     type: "button",
+    onClick: () => alert("Hello from Turborepo!"),
   },
 };
