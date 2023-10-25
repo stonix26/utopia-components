@@ -17,6 +17,7 @@
     "@utopia/avatar": "workspace:^",
     "@utopia/badge": "workspace:^",
     "@utopia/button": "workspace:*",
+    "@utopia/calendar": "workspace:^",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -28,6 +29,8 @@
     "@storybook/addon-links": "^7.5.1",
     "@storybook/react": "^7.5.1",
     "@storybook/react-vite": "^7.5.1",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
     "@vitejs/plugin-react": "^1.3.2",
     "autoprefixer": "^10.4.16",
     "eslint-config-custom": "workspace:*",
