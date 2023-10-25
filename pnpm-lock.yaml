@@ -41,6 +41,9 @@ importers:
       '@utopia/avatar':
         specifier: workspace:^
         version: link:../../packages/avatar
+      '@utopia/badge':
+        specifier: workspace:^
+        version: link:../../packages/badge
       '@utopia/button':
         specifier: workspace:*
         version: link:../../packages/button
@@ -241,6 +244,37 @@ importers:
       '@utopia/classnames':
         specifier: workspace:*
         version: link:../classnames
+    devDependencies:
+      '@types/react':
+        specifier: ^18.0.9
+        version: 18.0.26
+      '@types/react-dom':
+        specifier: ^18.0.4
+        version: 18.0.9
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../eslint-config-custom
+      react:
+        specifier: ^18.1.0
+        version: 18.2.0
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      tsup:
+        specifier: ^5.10.1
+        version: 5.12.9(typescript@5.2.2)
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
+  packages/badge:
+    dependencies:
+      '@utopia/classnames':
+        specifier: workspace:*
+        version: link:../classnames
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
     devDependencies:
       '@types/react':
         specifier: ^18.0.9
