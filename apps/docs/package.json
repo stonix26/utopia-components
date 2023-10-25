@@ -13,6 +13,7 @@
     "@utopia/accordion": "workspace:*",
     "@utopia/alert": "workspace:*",
     "@utopia/alert-dialog": "workspace:*",
+    "@utopia/aspect-ratio": "workspace:^",
     "@utopia/button": "workspace:*",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",

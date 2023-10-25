@@ -26,6 +26,9 @@ export const Default: Story = {
   args: {
     children: "Hello",
     type: "button",
-    onClick: () => alert("Hello from Turborepo!"),
+    onClick: () => {
+      // eslint-disable-next-line no-alert -- testing only
+      alert("Hello from Turborepo!");
+    },
   },
 };
