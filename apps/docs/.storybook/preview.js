@@ -1,7 +1,7 @@
-import '../index.css';
+import '../index.css'
 
 const preview = {
-  parameters: {},
-};
+  parameters: {}
+}
 
-export default preview;
+export default preview

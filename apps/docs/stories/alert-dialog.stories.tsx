@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -8,20 +8,20 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@utopia/alert-dialog";
-import { Button } from "@utopia/button";
+  AlertDialogTrigger
+} from '@utopia/alert-dialog'
+import { Button } from '@utopia/button'
 
 const meta: Meta<typeof AlertDialog> = {
-  component: AlertDialog,
-};
+  component: AlertDialog
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof AlertDialog>;
+type Story = StoryObj<typeof AlertDialog>
 
 export const Default: Story = {
-  render: (props) => (
+  render: props => (
     <AlertDialog {...props}>
       <AlertDialogTrigger asChild>
         <Button variant="outline">Show Dialog</Button>
@@ -41,5 +41,5 @@ export const Default: Story = {
       </AlertDialogContent>
     </AlertDialog>
   ),
-  name: "Alert Dialog",
-};
+  name: 'Alert Dialog'
+}

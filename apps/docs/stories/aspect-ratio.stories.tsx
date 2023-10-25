@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { AspectRatio } from "@utopia/aspect-ratio";
+import type { Meta, StoryObj } from '@storybook/react'
+import { AspectRatio } from '@utopia/aspect-ratio'
 
 const meta: Meta<typeof AspectRatio> = {
-  component: AspectRatio,
-};
+  component: AspectRatio
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof AspectRatio>;
+type Story = StoryObj<typeof AspectRatio>
 
 export const Default: Story = {
-  render: (props) => (
+  render: props => (
     <AspectRatio {...props}>
       <img
         alt=""
@@ -19,9 +19,9 @@ export const Default: Story = {
       />
     </AspectRatio>
   ),
-  name: "Aspect Ratio",
+  name: 'Aspect Ratio',
   args: {
     ratio: 16 / 9,
-    className: "bg-muted",
-  },
-};
+    className: 'bg-muted'
+  }
+}

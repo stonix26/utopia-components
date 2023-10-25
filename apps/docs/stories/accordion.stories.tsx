@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@utopia/accordion";
+  AccordionTrigger
+} from '@utopia/accordion'
 
 const meta: Meta<typeof Accordion> = {
-  component: Accordion,
-};
+  component: Accordion
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Accordion>;
+type Story = StoryObj<typeof Accordion>
 
 export const Default: Story = {
-  render: (props) => (
+  render: props => (
     <Accordion className="w-full" {...props}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -39,9 +39,9 @@ export const Default: Story = {
       </AccordionItem>
     </Accordion>
   ),
-  name: "Accordion",
+  name: 'Accordion',
   args: {
     collapsible: true,
-    type: "single",
-  },
-};
+    type: 'single'
+  }
+}

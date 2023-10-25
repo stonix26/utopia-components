@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Alert, AlertDescription, AlertTitle } from "@utopia/alert";
-import { Terminal } from "lucide-react";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Alert, AlertDescription, AlertTitle } from '@utopia/alert'
+import { Terminal } from 'lucide-react'
 
 const meta: Meta<typeof Alert> = {
-  component: Alert,
-};
+  component: Alert
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Alert>;
+type Story = StoryObj<typeof Alert>
 
 export const Default: Story = {
-  render: (props) => (
+  render: props => (
     <Alert {...props}>
       <Terminal className="h-4 w-4" />
       <AlertTitle>Heads up!</AlertTitle>
@@ -20,5 +20,5 @@ export const Default: Story = {
       </AlertDescription>
     </Alert>
   ),
-  name: "Alert",
-};
+  name: 'Alert'
+}

@@ -1,29 +1,29 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@utopia/button";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Button } from '@utopia/button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     type: {
-      control: { type: "radio" },
-      options: ["button", "submit", "reset"],
-    },
-  },
-};
+      control: { type: 'radio' },
+      options: ['button', 'submit', 'reset']
+    }
+  }
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
-  render: (props) => <Button {...props} />,
-  name: "Button",
+  render: props => <Button {...props} />,
+  name: 'Button',
   args: {
-    children: "Hello",
-    type: "button",
+    children: 'Hello',
+    type: 'button',
     onClick: () => {
       // eslint-disable-next-line no-alert -- testing only
-      alert("Hello from Turborepo!");
-    },
-  },
-};
+      alert('Hello from Turborepo!')
+    }
+  }
+}
