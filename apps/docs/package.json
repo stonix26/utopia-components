@@ -18,7 +18,11 @@
     "@utopia/badge": "workspace:^",
     "@utopia/button": "workspace:*",
     "@utopia/calendar": "workspace:^",
+    "@utopia/card": "workspace:^",
     "@utopia/checkbox": "workspace:^",
+    "@utopia/input": "workspace:^",
+    "@utopia/label": "workspace:^",
+    "@utopia/select": "workspace:^",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
