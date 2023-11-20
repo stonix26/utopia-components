@@ -25,6 +25,7 @@
     "@utopia/label": "workspace:^",
     "@utopia/menubar": "workspace:^",
     "@utopia/navigation-menu": "workspace:^",
+    "@utopia/popover": "workspace:^",
     "@utopia/select": "workspace:^",
     "lodash": "^4.17.21",
     "lucide-react": "^0.288.0",
