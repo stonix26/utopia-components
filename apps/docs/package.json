@@ -22,6 +22,7 @@
     "@utopia/checkbox": "workspace:^",
     "@utopia/input": "workspace:^",
     "@utopia/label": "workspace:^",
+    "@utopia/menubar": "workspace:^",
     "@utopia/select": "workspace:^",
     "lodash": "^4.17.21",
     "lucide-react": "^0.288.0",
