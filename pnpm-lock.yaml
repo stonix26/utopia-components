@@ -59,6 +59,27 @@ importers:
       '@utopia/classnames':
         specifier: workspace:^
         version: link:../../packages/classnames
+      '@utopia/collapsible':
+        specifier: workspace:^
+        version: link:../../packages/collapsible
+      '@utopia/command':
+        specifier: workspace:^
+        version: link:../../packages/command
+      '@utopia/context-menu':
+        specifier: workspace:^
+        version: link:../../packages/context-menu
+      '@utopia/dialog':
+        specifier: workspace:^
+        version: link:../../packages/dialog
+      '@utopia/dropdown-menu':
+        specifier: workspace:^
+        version: link:../../packages/dropdown-menu
+      '@utopia/form':
+        specifier: workspace:^
+        version: link:../../packages/form
+      '@utopia/hover-card':
+        specifier: workspace:^
+        version: link:../../packages/hover-card
       '@utopia/input':
         specifier: workspace:^
         version: link:../../packages/input
@@ -80,9 +101,48 @@ importers:
       '@utopia/radio-group':
         specifier: workspace:^
         version: link:../../packages/radio-group
+      '@utopia/scroll-area':
+        specifier: workspace:^
+        version: link:../../packages/scroll-area
       '@utopia/select':
         specifier: workspace:^
         version: link:../../packages/select
+      '@utopia/separator':
+        specifier: workspace:^
+        version: link:../../packages/separator
+      '@utopia/sheet':
+        specifier: workspace:^
+        version: link:../../packages/sheet
+      '@utopia/skeleton':
+        specifier: workspace:^
+        version: link:../../packages/skeleton
+      '@utopia/slider':
+        specifier: workspace:^
+        version: link:../../packages/slider
+      '@utopia/switch':
+        specifier: workspace:^
+        version: link:../../packages/switch
+      '@utopia/table':
+        specifier: workspace:^
+        version: link:../../packages/table
+      '@utopia/tabs':
+        specifier: workspace:^
+        version: link:../../packages/tabs
+      '@utopia/textarea':
+        specifier: workspace:^
+        version: link:../../packages/textarea
+      '@utopia/toast':
+        specifier: workspace:^
+        version: link:../../packages/toast
+      '@utopia/toggle':
+        specifier: workspace:^
+        version: link:../../packages/toggle
+      '@utopia/toggle-group':
+        specifier: workspace:^
+        version: link:../../packages/toggle-group
+      '@utopia/tooltip':
+        specifier: workspace:^
+        version: link:../../packages/tooltip
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
