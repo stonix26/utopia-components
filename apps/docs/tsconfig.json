@@ -1,5 +1,6 @@
 {
   "extends": "tsconfig/react-app.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

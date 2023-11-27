@@ -7,6 +7,10 @@
     "preview-storybook": {
       "dependsOn": ["^build"],
       "persistent": true
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
     }
   }
 }
