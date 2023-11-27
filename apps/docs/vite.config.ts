@@ -38,7 +38,7 @@ const filtered_aliases = all_playbook
   .map(element => {
     return {
       find: element,
-      replacement: getAbsolutePath(element) + '/src/index.ts'
+      replacement: getAbsolutePath(element) + '/src/index.tsx'
     }
   })
 
