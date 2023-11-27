@@ -143,6 +143,9 @@ importers:
       '@utopia/tooltip':
         specifier: workspace:*
         version: link:../../packages/tooltip
+      date-fns:
+        specifier: ^2.30.0
+        version: 2.30.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -152,6 +155,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-day-picker:
+        specifier: ^8.9.1
+        version: 8.9.1(date-fns@2.30.0)(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
