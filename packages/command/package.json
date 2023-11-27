@@ -18,7 +18,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@utopia/classnames": "workspace:*",
-    "@utopia/dialog": "workspace:^",
+    "@utopia/dialog": "workspace:*",
     "cmdk": "^0.2.0",
     "lucide-react": "^0.288.0"
   },

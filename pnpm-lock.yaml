@@ -36,112 +36,112 @@ importers:
         specifier: workspace:*
         version: link:../../packages/alert-dialog
       '@utopia/aspect-ratio':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/aspect-ratio
       '@utopia/avatar':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/avatar
       '@utopia/badge':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/badge
       '@utopia/button':
         specifier: workspace:*
         version: link:../../packages/button
       '@utopia/calendar':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/calendar
       '@utopia/card':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/card
       '@utopia/checkbox':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/checkbox
       '@utopia/classnames':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/classnames
       '@utopia/collapsible':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/collapsible
       '@utopia/command':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/command
       '@utopia/context-menu':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/context-menu
       '@utopia/dialog':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/dialog
       '@utopia/dropdown-menu':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/dropdown-menu
       '@utopia/form':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/form
       '@utopia/hover-card':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/hover-card
       '@utopia/input':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/input
       '@utopia/label':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/label
       '@utopia/menubar':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/menubar
       '@utopia/navigation-menu':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/navigation-menu
       '@utopia/popover':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/popover
       '@utopia/progress':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/progress
       '@utopia/radio-group':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/radio-group
       '@utopia/scroll-area':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/scroll-area
       '@utopia/select':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/select
       '@utopia/separator':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/separator
       '@utopia/sheet':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/sheet
       '@utopia/skeleton':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/skeleton
       '@utopia/slider':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/slider
       '@utopia/switch':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/switch
       '@utopia/table':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/table
       '@utopia/tabs':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/tabs
       '@utopia/textarea':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/textarea
       '@utopia/toast':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/toast
       '@utopia/toggle':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/toggle
       '@utopia/toggle-group':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/toggle-group
       '@utopia/tooltip':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/tooltip
       lodash:
         specifier: ^4.17.21
@@ -285,7 +285,7 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(@types/react-dom@18.0.9)(@types/react@18.0.26)(react-dom@18.2.0)(react@18.2.0)
       '@utopia/button':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../button
       '@utopia/classnames':
         specifier: workspace:*
@@ -440,7 +440,7 @@ importers:
   packages/calendar:
     dependencies:
       '@utopia/button':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../button
       '@utopia/classnames':
         specifier: workspace:*
@@ -595,7 +595,7 @@ importers:
         specifier: workspace:*
         version: link:../classnames
       '@utopia/dialog':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../dialog
       cmdk:
         specifier: ^0.2.0
@@ -1439,7 +1439,7 @@ importers:
         specifier: workspace:*
         version: link:../classnames
       '@utopia/toggle':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../toggle
       class-variance-authority:
         specifier: ^0.7.0

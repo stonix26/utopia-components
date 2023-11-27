@@ -16,7 +16,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "@utopia/button": "workspace:^",
+    "@utopia/button": "workspace:*",
     "@utopia/classnames": "workspace:*",
     "lucide-react": "^0.288.0",
     "react-day-picker": "^8.9.1"

@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.0.5",
-    "@utopia/button": "workspace:^",
+    "@utopia/button": "workspace:*",
     "@utopia/classnames": "workspace:*"
   },
   "devDependencies": {
