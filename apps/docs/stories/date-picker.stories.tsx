@@ -96,7 +96,6 @@ function DatePickerWithRange({
             onSelect={setDate}
             selected={date}
             showOutsideDays={false}
-            showWeekNumber
           />
         </PopoverContent>
       </Popover>
