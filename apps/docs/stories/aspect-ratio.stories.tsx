@@ -10,8 +10,8 @@ export default meta
 type Story = StoryObj<typeof AspectRatio>
 
 export const Default: Story = {
-  render: props => (
-    <AspectRatio {...props}>
+  render: args => (
+    <AspectRatio {...args}>
       <img
         alt=""
         className="rounded-md object-cover"

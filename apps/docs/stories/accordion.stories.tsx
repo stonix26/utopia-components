@@ -15,8 +15,8 @@ export default meta
 type Story = StoryObj<typeof Accordion>
 
 export const Default: Story = {
-  render: props => (
-    <Accordion className="w-full" {...props}>
+  render: args => (
+    <Accordion className="w-full" {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>

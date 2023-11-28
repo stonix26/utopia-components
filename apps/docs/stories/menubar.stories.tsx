@@ -24,8 +24,8 @@ export default meta
 type Story = StoryObj<typeof Menubar>
 
 export const Default: Story = {
-  render: props => (
-    <Menubar {...props}>
+  render: args => (
+    <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>File</MenubarTrigger>
         <MenubarContent>

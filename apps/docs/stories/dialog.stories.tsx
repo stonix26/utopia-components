@@ -23,8 +23,8 @@ export default meta
 type Story = StoryObj<typeof Dialog>
 
 export const Default: Story = {
-  render: props => (
-    <Dialog {...props}>
+  render: args => (
+    <Dialog {...args}>
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
@@ -67,8 +67,8 @@ export const Default: Story = {
 }
 
 export const CustomCloseButton: Story = {
-  render: props => (
-    <Dialog {...props}>
+  render: args => (
+    <Dialog {...args}>
       <DialogTrigger asChild>
         <Button variant="outline">Share</Button>
       </DialogTrigger>

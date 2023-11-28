@@ -44,8 +44,8 @@ export default meta
 type Story = StoryObj<typeof DropdownMenu>
 
 export const Default: Story = {
-  render: props => (
-    <DropdownMenu {...props}>
+  render: args => (
+    <DropdownMenu {...args}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>

@@ -13,8 +13,8 @@ export default meta
 type Story = StoryObj<typeof Popover>
 
 export const Default: Story = {
-  render: props => (
-    <Popover {...props}>
+  render: args => (
+    <Popover {...args}>
       <PopoverTrigger asChild>
         <Button variant="outline">Open popover</Button>
       </PopoverTrigger>

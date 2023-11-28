@@ -58,8 +58,8 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export const Default: Story = {
-  render: props => (
-    <NavigationMenu {...props}>
+  render: args => (
+    <NavigationMenu {...args}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>

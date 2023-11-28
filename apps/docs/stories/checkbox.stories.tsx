@@ -10,9 +10,9 @@ export default meta
 type Story = StoryObj<typeof Checkbox>
 
 export const Default: Story = {
-  render: props => (
+  render: args => (
     <div className="flex items-center space-x-2">
-      <Checkbox {...props} />
+      <Checkbox {...args} />
       <label
         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         htmlFor="terms"

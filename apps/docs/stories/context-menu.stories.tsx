@@ -24,8 +24,8 @@ export default meta
 type Story = StoryObj<typeof ContextMenu>
 
 export const Default: Story = {
-  render: props => (
-    <ContextMenu {...props}>
+  render: args => (
+    <ContextMenu {...args}>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>

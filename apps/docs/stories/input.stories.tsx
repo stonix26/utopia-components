@@ -10,7 +10,7 @@ export default meta
 type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
-  render: props => <Input {...props} />,
+  render: args => <Input {...args} />,
   name: 'Input',
   args: {
     type: 'email',

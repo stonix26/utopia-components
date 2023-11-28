@@ -29,8 +29,8 @@ export default meta
 type Story = StoryObj<typeof Command>
 
 export const Default: Story = {
-  render: props => (
-    <Command {...props}>
+  render: args => (
+    <Command {...args}>
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

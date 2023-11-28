@@ -10,8 +10,8 @@ export default meta
 type Story = StoryObj<typeof Avatar>
 
 export const Default: Story = {
-  render: props => (
-    <Avatar {...props}>
+  render: args => (
+    <Avatar {...args}>
       <AvatarImage alt="@stonix26" src="https://github.com/stonix26.png" />
       <AvatarFallback>RE</AvatarFallback>
     </Avatar>

@@ -18,8 +18,8 @@ export default meta
 type Story = StoryObj<typeof Select>
 
 export const Default: Story = {
-  render: props => (
-    <Select {...props}>
+  render: args => (
+    <Select {...args}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>

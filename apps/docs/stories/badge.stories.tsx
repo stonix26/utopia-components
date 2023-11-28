@@ -10,6 +10,6 @@ export default meta
 type Story = StoryObj<typeof Badge>
 
 export const Default: Story = {
-  render: props => <Badge {...props}>Badge</Badge>,
+  render: args => <Badge {...args}>Badge</Badge>,
   name: 'Badge'
 }

@@ -27,8 +27,8 @@ export default meta
 type Story = StoryObj<typeof Card>
 
 export const Default: Story = {
-  render: props => (
-    <Card {...props}>
+  render: args => (
+    <Card {...args}>
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>

@@ -11,11 +11,11 @@ export default meta
 type Story = StoryObj<typeof Label>
 
 export const Default: Story = {
-  render: props => (
+  render: args => (
     <div>
       <div className="flex items-center space-x-2">
         <Checkbox id="terms" />
-        <Label {...props}>Accept terms and conditions</Label>
+        <Label {...args}>Accept terms and conditions</Label>
       </div>
     </div>
   ),
