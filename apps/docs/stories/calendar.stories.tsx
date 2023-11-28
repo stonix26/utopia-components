@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Calendar } from '@utopia/calendar'
 
-function CalendarComponent() {
+function CalendarComponent(): JSX.Element {
   const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <Calendar

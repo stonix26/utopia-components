@@ -32,28 +32,28 @@ export const Default: Story = {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <Label className="text-right" htmlFor="name">
               Name
             </Label>
             <Input
-              id="name"
-              defaultValue="Pedro Duarte"
               className="col-span-3"
+              defaultValue="Pedro Duarte"
+              id="name"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
+            <Label className="text-right" htmlFor="username">
               Username
             </Label>
             <Input
-              id="username"
-              defaultValue="@peduarte"
               className="col-span-3"
+              defaultValue="@peduarte"
+              id="username"
             />
           </div>
         </div>
@@ -81,16 +81,16 @@ export const CustomCloseButton: Story = {
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <div className="grid flex-1 gap-2">
-            <Label htmlFor="link" className="sr-only">
+            <Label className="sr-only" htmlFor="link">
               Link
             </Label>
             <Input
-              id="link"
               defaultValue="https://www.radix-ui.com/primitives/docs/components/dialog"
+              id="link"
               readOnly
             />
           </div>
-          <Button type="submit" size="sm" className="px-3">
+          <Button className="px-3" size="sm" type="submit">
             <span className="sr-only">Copy</span>
             <Copy className="h-4 w-4" />
           </Button>

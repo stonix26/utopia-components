@@ -16,12 +16,11 @@ import {
   UserPlus,
   Users
 } from 'lucide-react'
-
 import { Button } from '@utopia/button'
+import type { DropdownMenuCheckboxItemProps } from '@utopia/dropdown-menu'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
-  DropdownMenuCheckboxItemProps,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
@@ -138,7 +137,7 @@ export const Default: Story = {
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
-function DropdownMenuCheckboxes() {
+function DropdownMenuCheckboxes(): JSX.Element {
   const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
   const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
   const [showPanel, setShowPanel] = React.useState<Checked>(false)
@@ -159,8 +158,8 @@ function DropdownMenuCheckboxes() {
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={showActivityBar}
-          onCheckedChange={setShowActivityBar}
           disabled
+          onCheckedChange={setShowActivityBar}
         >
           Activity Bar
         </DropdownMenuCheckboxItem>
@@ -179,7 +178,7 @@ export const Checkboxes: Story = {
   render: () => <DropdownMenuCheckboxes />
 }
 
-function DropdownMenuRadioGroupDemo() {
+function DropdownMenuRadioGroupDemo(): JSX.Element {
   const [position, setPosition] = React.useState('bottom')
 
   return (
@@ -190,7 +189,7 @@ function DropdownMenuRadioGroupDemo() {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+        <DropdownMenuRadioGroup onValueChange={setPosition} value={position}>
           <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
