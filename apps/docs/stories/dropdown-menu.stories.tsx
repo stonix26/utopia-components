@@ -17,7 +17,6 @@ import {
   Users
 } from 'lucide-react'
 import { Button } from '@utopia/button'
-import type { DropdownMenuCheckboxItemProps } from '@utopia/dropdown-menu'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -135,7 +134,9 @@ export const Default: Story = {
   name: 'DropdownMenu'
 }
 
-type Checked = DropdownMenuCheckboxItemProps['checked']
+type Checked = React.ComponentPropsWithRef<
+  typeof DropdownMenuCheckboxItem
+>['checked']
 
 function DropdownMenuCheckboxes(): JSX.Element {
   const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
