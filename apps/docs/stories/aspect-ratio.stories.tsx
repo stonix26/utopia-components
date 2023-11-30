@@ -19,7 +19,6 @@ export const Default: Story = {
       />
     </AspectRatio>
   ),
-  name: 'Aspect Ratio',
   args: {
     ratio: 16 / 9,
     className: 'bg-muted'

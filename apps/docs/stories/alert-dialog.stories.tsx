@@ -40,6 +40,5 @@ export const Default: Story = {
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-  ),
-  name: 'Alert Dialog'
+  )
 }

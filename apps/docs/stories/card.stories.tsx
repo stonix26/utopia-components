@@ -63,7 +63,6 @@ export const Default: Story = {
       </CardFooter>
     </Card>
   ),
-  name: 'Card',
   args: {
     className: 'w-[350px]'
   }

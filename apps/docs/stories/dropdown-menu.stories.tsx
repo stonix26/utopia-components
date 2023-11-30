@@ -130,8 +130,7 @@ export const Default: Story = {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  ),
-  name: 'DropdownMenu'
+  )
 }
 
 type Checked = React.ComponentPropsWithRef<

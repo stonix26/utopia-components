@@ -69,7 +69,6 @@ export const Default: Story = {
       </CommandList>
     </Command>
   ),
-  name: 'Command',
   args: {
     className: 'rounded-lg border shadow-md'
   }

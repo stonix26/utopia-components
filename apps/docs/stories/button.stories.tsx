@@ -17,7 +17,6 @@ type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
   render: args => <Button {...args} />,
-  name: 'Button',
   args: {
     children: 'Hello',
     type: 'button',

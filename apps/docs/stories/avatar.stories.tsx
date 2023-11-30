@@ -15,6 +15,5 @@ export const Default: Story = {
       <AvatarImage alt="@stonix26" src="https://github.com/stonix26.png" />
       <AvatarFallback>RE</AvatarFallback>
     </Avatar>
-  ),
-  name: 'Avatar'
+  )
 }

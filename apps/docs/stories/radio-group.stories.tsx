@@ -27,7 +27,6 @@ export const Default: Story = {
       </div>
     </RadioGroup>
   ),
-  name: 'RadioGroup',
   args: {
     defaultValue: 'comfortable'
   }

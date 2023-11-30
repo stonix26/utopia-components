@@ -31,7 +31,6 @@ export const Default: Story = {
       </div>
     </ScrollArea>
   ),
-  name: 'ScrollArea',
   args: {
     className: 'h-72 w-48 rounded-md border'
   }

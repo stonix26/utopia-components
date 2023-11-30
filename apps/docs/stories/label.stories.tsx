@@ -19,7 +19,6 @@ export const Default: Story = {
       </div>
     </div>
   ),
-  name: 'Label',
   args: {
     htmlFor: 'terms'
   }

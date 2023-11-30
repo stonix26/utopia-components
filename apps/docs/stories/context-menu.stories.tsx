@@ -72,6 +72,5 @@ export const Default: Story = {
         </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
-  ),
-  name: 'Context menu'
+  )
 }

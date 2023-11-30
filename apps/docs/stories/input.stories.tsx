@@ -11,7 +11,6 @@ type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
   render: args => <Input {...args} />,
-  name: 'Input',
   args: {
     type: 'email',
     placeholder: 'Email'

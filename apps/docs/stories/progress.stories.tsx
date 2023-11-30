@@ -11,7 +11,6 @@ type Story = StoryObj<typeof Progress>
 
 export const Default: Story = {
   render: args => <Progress {...args} />,
-  name: 'Accordion',
   args: {
     value: 33
   }

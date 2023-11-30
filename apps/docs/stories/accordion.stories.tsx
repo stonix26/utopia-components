@@ -39,7 +39,6 @@ export const Default: Story = {
       </AccordionItem>
     </Accordion>
   ),
-  name: 'Accordion',
   args: {
     collapsible: true,
     type: 'single'

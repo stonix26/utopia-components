@@ -19,6 +19,5 @@ export const Default: Story = {
         You can add components to your app using the cli.
       </AlertDescription>
     </Alert>
-  ),
-  name: 'Alert'
+  )
 }

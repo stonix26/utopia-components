@@ -62,8 +62,7 @@ export const Default: Story = {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
-  name: 'Dialog'
+  )
 }
 
 export const CustomCloseButton: Story = {
@@ -104,6 +103,5 @@ export const CustomCloseButton: Story = {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  ),
-  name: 'Dialog'
+  )
 }

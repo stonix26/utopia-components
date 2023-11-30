@@ -34,6 +34,5 @@ export const Default: Story = {
         </SelectGroup>
       </SelectContent>
     </Select>
-  ),
-  name: 'Select'
+  )
 }

@@ -43,6 +43,5 @@ export const Default: Story = {
         </div>
       </HoverCardContent>
     </HoverCard>
-  ),
-  name: 'HoverCard'
+  )
 }
