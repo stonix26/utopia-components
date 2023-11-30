@@ -26,6 +26,9 @@ importers:
 
   apps/docs:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^3.3.2
+        version: 3.3.2(react-hook-form@7.48.2)
       '@utopia/accordion':
         specifier: workspace:*
         version: link:../../packages/accordion
@@ -161,6 +164,12 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.48.2
+        version: 7.48.2(react@18.2.0)
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
     devDependencies:
       '@storybook/addon-actions':
         specifier: ^7.5.1
