@@ -8,9 +8,7 @@ const meta: Meta<typeof Alert> = {
 
 export default meta
 
-type Story = StoryObj<typeof Alert>
-
-export const Default: Story = {
+const AlertTemplate: StoryObj<typeof Alert> = {
   render: args => (
     <Alert {...args}>
       <Terminal className="h-4 w-4" />
@@ -20,4 +18,18 @@ export const Default: Story = {
       </AlertDescription>
     </Alert>
   )
+}
+
+export const Default: StoryObj<typeof AlertTemplate> = {
+  ...AlertTemplate,
+  args: {
+    variant: 'default'
+  }
+}
+
+export const Destructive: StoryObj<typeof AlertTemplate> = {
+  ...AlertTemplate,
+  args: {
+    variant: 'destructive'
+  }
 }

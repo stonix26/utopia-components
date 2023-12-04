@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -16,7 +16,7 @@ import { Input } from '@utopia/input'
 import { toast } from '@utopia/toast'
 
 const meta: Meta = {
-  title: 'Form'
+  component: Form
 }
 
 export default meta
@@ -29,7 +29,7 @@ const formSchema = z.object({
 
 type TFormSchema = z.infer<typeof formSchema>
 
-export function ProfileForm(): JSX.Element {
+function DemoForm(): JSX.Element {
   // 1. Define your form.
   const form = useForm<TFormSchema>({
     resolver: zodResolver(formSchema),
@@ -73,4 +73,9 @@ export function ProfileForm(): JSX.Element {
       </form>
     </Form>
   )
+}
+
+export const DemoFormStory: StoryObj<typeof DemoForm> = {
+  render: () => <DemoForm />,
+  name: 'Form'
 }
