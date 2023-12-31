@@ -28,6 +28,6 @@
     "typescript": "^5.2.2"
   },
   "publishConfig": {
-    "registry": "https://utopia-packages.onrender.com/"
+    "access": "public"
   }
 }
