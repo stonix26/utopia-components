@@ -81,3 +81,13 @@
       'calt' 1;
   }
 }
+
+@layer components {
+  /* 
+    📓 This is a custom styling for Tiptap RTE
+    📎 Copy and customize this when used in other projects.
+  */
+  .prose-utopia {
+    @apply prose-sm leading-tight mx-auto max-w-none p-3 focus:outline-none min-h-[20rem] prose-p:my-0 prose-h1:my-0 prose-h2:my-0 prose-h3:my-0 prose-h4:my-0 prose-h5:my-0 prose-h6:my-0;
+  }
+}
