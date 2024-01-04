@@ -1129,6 +1129,9 @@ importers:
       '@tiptap/starter-kit':
         specifier: ^2.1.13
         version: 2.1.13(@tiptap/pm@2.1.13)
+      '@utopia/button':
+        specifier: workspace:^
+        version: link:../button
       '@utopia/classnames':
         specifier: workspace:*
         version: link:../classnames

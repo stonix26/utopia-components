@@ -33,6 +33,7 @@
     "@tiptap/pm": "^2.1.13",
     "@tiptap/react": "^2.1.13",
     "@tiptap/starter-kit": "^2.1.13",
+    "@utopia/button": "workspace:^",
     "@utopia/classnames": "workspace:*",
     "lucide-react": "^0.288.0",
     "tippy.js": "^6.3.7"

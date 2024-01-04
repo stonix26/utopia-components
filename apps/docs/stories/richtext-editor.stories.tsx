@@ -103,11 +103,11 @@ const content = {
 
 const mentionList = ['Ruston', 'Jizza', 'Meco']
 
-export function Default(): JSX.Element {
+export function Default(): JSX.Element | null {
   const editor = useEditor({ editable: true, content, mentionList })
 
   if (!editor) {
-    return <div>Something wrong on editor state.</div>
+    return null
   }
 
   return <RichtextEditor editor={editor} />
@@ -124,11 +124,11 @@ const newContent = {
   ]
 }
 
-export function Controlled(): JSX.Element {
+export function Controlled(): JSX.Element | null {
   const editor = useEditor({ editable: true, content, mentionList })
 
   if (!editor) {
-    return <div>Something wrong on editor state.</div>
+    return null
   }
 
   // eslint-disable-next-line no-console -- logger
@@ -136,9 +136,19 @@ export function Controlled(): JSX.Element {
 
   return (
     <div className="flex flex-col gap-4">
-      <Button onClick={() => editor.commands.setContent(newContent)}>
-        Click to set new editor content
-      </Button>
+      <div className="flex gap-4">
+        <Button onClick={() => editor.commands.setContent(newContent)}>
+          Click to set new editor content
+        </Button>
+        <Button
+          onClick={() => {
+            editor.setEditable(!editor.isEditable, true)
+            editor.chain().focus()
+          }}
+        >
+          Toggle Editable
+        </Button>
+      </div>
       <RichtextEditor editor={editor} />
     </div>
   )
