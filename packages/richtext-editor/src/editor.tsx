@@ -11,7 +11,7 @@ const Editor = forwardRef<HTMLDivElement, EditorProps>(function Editor(
   ref
 ) {
   return (
-    <div ref={ref}>
+    <div className="divide-y rounded-sm border border-border" ref={ref}>
       <Menubar editor={editor} />
       <EditorContent editor={editor} />
     </div>

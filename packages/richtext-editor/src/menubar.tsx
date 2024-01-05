@@ -11,20 +11,20 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
     return null
   }
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5 p-0.5">
       <Button
         onClick={() => editor.chain().focus().undo().run()}
         size="xs"
         variant="ghost"
       >
-        <Undo2 className="w-4 h-4" />
+        <Undo2 className="h-4 w-4" />
       </Button>
       <Button
         onClick={() => editor.chain().focus().redo().run()}
         size="xs"
         variant="ghost"
       >
-        <Redo2 className="w-4 h-4" />
+        <Redo2 className="h-4 w-4" />
       </Button>
     </div>
   )

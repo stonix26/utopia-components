@@ -58,12 +58,12 @@ export const MentionList = forwardRef<unknown, MentionListProps>(
     }))
 
     return (
-      <div className="relative bg-white drop-shadow-xl overflow-hidden p-2">
+      <div className="relative overflow-hidden bg-white p-2 drop-shadow-xl">
         {props.items.length ? (
           props.items.map((item, index) => (
             <button
               className={cn(
-                'bg-transparent border border-transparent rounded block px-2 py-1 text-base text-left w-full',
+                'block w-full rounded border border-transparent bg-transparent px-2 py-1 text-left text-base',
                 index === selectedIndex && 'border-secondary-darker'
               )}
               // eslint-disable-next-line react/no-array-index-key -- TODO
@@ -77,7 +77,7 @@ export const MentionList = forwardRef<unknown, MentionListProps>(
             </button>
           ))
         ) : (
-          <div className="bg-transparent border border-transparent rounded block px-2 py-1 text-base text-left w-full">
+          <div className="block w-full rounded border border-transparent bg-transparent px-2 py-1 text-left text-base">
             No result
           </div>
         )}
