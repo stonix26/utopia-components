@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { EditorContent, type Editor as TiptapEditor } from '@tiptap/react'
-import Menubar from './menubar'
+import Menubar from './components/menubar'
 
 export interface EditorProps {
   editor: TiptapEditor | null

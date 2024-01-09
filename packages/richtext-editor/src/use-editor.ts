@@ -26,7 +26,7 @@ import { TableRow } from '@tiptap/extension-table-row'
 import { TableHeader } from '@tiptap/extension-table-header'
 import { TableCell } from '@tiptap/extension-table-cell'
 import { FontSize } from './plugins/font-size'
-import { MentionList } from './mention-list'
+import { MentionList } from './components/mention-list'
 
 interface ExtendedEditorOptions extends EditorOptions {
   mentionList: string[]
