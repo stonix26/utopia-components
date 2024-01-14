@@ -3,7 +3,6 @@ import type { Editor } from '@tiptap/react'
 import {
   Undo2,
   Redo2,
-  Pilcrow,
   Heading1,
   Heading2,
   Heading3,
@@ -26,7 +25,8 @@ import {
   Eraser,
   RotateCcw,
   Unlink,
-  RemoveFormatting
+  RemoveFormatting,
+  Text
 } from 'lucide-react'
 import { useCallback } from 'react'
 import {
@@ -111,8 +111,8 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
                   : editor.isActive('codeBlock')
                   ? 'Code Block'
                   : editor.isActive('paragraph')
-                  ? 'Paragraph'
-                  : 'Paragraph'
+                  ? 'Normal'
+                  : 'Normal'
               }
               disabled={!isEditable}
               icon={
@@ -139,8 +139,8 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
                   : editor.isActive('codeBlock')
                   ? SquareCode
                   : editor.isActive('paragraph')
-                  ? Pilcrow
-                  : Pilcrow
+                  ? Text
+                  : Text
               }
             />
           </DropdownMenuTrigger>
@@ -153,8 +153,8 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
                 }
                 onClick={() => editor.chain().focus().setParagraph().run()}
               >
-                <Pilcrow className="mr-2 h-4 w-4" />
-                <span>Paragraph</span>
+                <Text className="mr-2 h-4 w-4" />
+                <span>Normal</span>
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() =>
