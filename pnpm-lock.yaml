@@ -1138,15 +1138,9 @@ importers:
       '@utopia/classnames':
         specifier: workspace:*
         version: link:../classnames
-      '@utopia/command':
+      '@utopia/dropdown-menu':
         specifier: workspace:^
-        version: link:../command
-      '@utopia/popover':
-        specifier: workspace:^
-        version: link:../popover
-      '@utopia/scroll-area':
-        specifier: workspace:^
-        version: link:../scroll-area
+        version: link:../dropdown-menu
       lucide-react:
         specifier: ^0.288.0
         version: 0.288.0(react@18.2.0)

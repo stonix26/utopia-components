@@ -35,9 +35,7 @@
     "@tiptap/starter-kit": "^2.1.13",
     "@utopia/button": "workspace:^",
     "@utopia/classnames": "workspace:*",
-    "@utopia/command": "workspace:^",
-    "@utopia/popover": "workspace:^",
-    "@utopia/scroll-area": "workspace:^",
+    "@utopia/dropdown-menu": "workspace:^",
     "lucide-react": "^0.288.0",
     "tippy.js": "^6.3.7"
   },
