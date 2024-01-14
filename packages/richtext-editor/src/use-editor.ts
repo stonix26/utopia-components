@@ -37,16 +37,6 @@ type UseEditorType = (
   deps?: DependencyList
 ) => Editor | null
 
-// TODO - make this a separate classes
-const mentionsCls = {
-  chip: 'border border-secondary-darker rounded box-decoration-clone px-1 py-0.5 bg-white',
-  itemContainer: 'relative bg-white drop-shadow-xl overflow-hidden p-2',
-  item: {
-    base: 'bg-transparent border border-transparent rounded block px-2 py-1 text-base text-left w-full',
-    isSelected: 'border-secondary-darker'
-  }
-}
-
 const useEditor: UseEditorType = (
   {
     editable = true,
@@ -89,7 +79,7 @@ const useEditor: UseEditorType = (
         TextStyle,
         Mention.configure({
           HTMLAttributes: {
-            class: mentionsCls.chip
+            class: 'rounded px-1 py-0.5 bg-accent text-accent-foreground'
           },
           suggestion: {
             items: ({ query }) => {

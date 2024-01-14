@@ -58,13 +58,13 @@ export const MentionList = forwardRef<unknown, MentionListProps>(
     }))
 
     return (
-      <div className="relative overflow-hidden bg-white p-2 drop-shadow-xl">
+      <div className="min-w-32 relative z-50 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
         {props.items.length ? (
           props.items.map((item, index) => (
             <button
               className={cn(
-                'block w-full rounded border border-transparent bg-transparent px-2 py-1 text-left text-base',
-                index === selectedIndex && 'border-secondary-darker'
+                'block w-full rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
+                index === selectedIndex && 'bg-accent text-accent-foreground'
               )}
               // eslint-disable-next-line react/no-array-index-key -- TODO
               key={index}
@@ -77,7 +77,7 @@ export const MentionList = forwardRef<unknown, MentionListProps>(
             </button>
           ))
         ) : (
-          <div className="block w-full rounded border border-transparent bg-transparent px-2 py-1 text-left text-base">
+          <div className="block w-full rounded-sm px-2 py-1.5 text-left text-sm outline-none">
             No result
           </div>
         )}
