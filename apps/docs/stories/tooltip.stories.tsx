@@ -3,7 +3,8 @@ import { Button } from '@utopia/button'
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
+  TooltipPortal,
+  // TooltipProvider,
   TooltipTrigger
 } from '@utopia/tooltip'
 
@@ -17,15 +18,17 @@ type Story = StoryObj<typeof Tooltip>
 
 export const Default: Story = {
   render: () => (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Hover</Button>
-        </TooltipTrigger>
+    // <TooltipProvider> --> Provide to the root of your App
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Hover</Button>
+      </TooltipTrigger>
+      <TooltipPortal>
         <TooltipContent>
           <p>Add to library</p>
         </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+      </TooltipPortal>
+    </Tooltip>
+    // </TooltipProvider>
   )
 }
