@@ -75,11 +75,13 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           disabled={!isEditable || !editor.can().chain().focus().undo().run()}
           icon={Undo2}
           onClick={() => editor.chain().focus().undo().run()}
+          tooltip="Undo"
         />
         <Button
           disabled={!isEditable || !editor.can().chain().focus().redo().run()}
           icon={Redo2}
           onClick={() => editor.chain().focus().redo().run()}
+          tooltip="Redo"
         />
       </div>
 
@@ -142,6 +144,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
                   ? Text
                   : Text
               }
+              tooltip="Text styles"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start">
@@ -250,6 +253,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           icon={Bold}
           isActive={editor.isActive('bold')}
           onClick={() => editor.chain().focus().toggleBold().run()}
+          tooltip="Bold"
         />
         <Button
           disabled={
@@ -258,6 +262,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           icon={Italic}
           isActive={editor.isActive('italic')}
           onClick={() => editor.chain().focus().toggleItalic().run()}
+          tooltip="Italic"
         />
         <Button
           disabled={
@@ -266,6 +271,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           icon={Underline}
           isActive={editor.isActive('underline')}
           onClick={() => editor.chain().focus().toggleUnderline().run()}
+          tooltip="Underline"
         />
         <Button
           disabled={
@@ -274,6 +280,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           icon={Strikethrough}
           isActive={editor.isActive('strike')}
           onClick={() => editor.chain().focus().toggleStrike().run()}
+          tooltip="Strikethrough"
         />
 
         {editor.getAttributes('link').href === undefined ? (
@@ -282,6 +289,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
             icon={Link}
             isActive={editor.isActive('link')}
             onClick={handleSetUnsetLink}
+            tooltip="Insert link"
           />
         ) : (
           <Button
@@ -289,31 +297,14 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
             icon={Unlink}
             isActive={editor.isActive('link')}
             onClick={() => editor.chain().focus().unsetLink().run()}
+            tooltip="Unlink"
           />
         )}
 
-        <Button disabled icon={Palette} />
+        <Button disabled icon={Palette} tooltip="Color" />
       </div>
 
       <div className="flex gap-0.5 px-0.5">
-        <Button
-          disabled={
-            !isEditable ||
-            !editor.can().chain().focus().toggleBulletList().run()
-          }
-          icon={List}
-          isActive={editor.isActive('bulletList')}
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
-        />
-        <Button
-          disabled={
-            !isEditable ||
-            !editor.can().chain().focus().toggleOrderedList().run()
-          }
-          icon={ListOrdered}
-          isActive={editor.isActive('orderedList')}
-          onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        />
         <Button
           disabled={
             !isEditable ||
@@ -321,6 +312,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           }
           icon={Minus}
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          tooltip="Insert horizontal rule"
         />
         <Button
           disabled={
@@ -328,6 +320,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           }
           icon={WrapText}
           onClick={() => editor.chain().focus().setHardBreak().run()}
+          tooltip="Insert new line"
         />
       </div>
 
@@ -338,6 +331,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           }
           icon={Eraser}
           onClick={() => editor.chain().focus().unsetAllMarks().run()}
+          tooltip="Unset all marks"
         />
         <Button
           disabled={
@@ -345,6 +339,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           }
           icon={RemoveFormatting}
           onClick={() => editor.chain().focus().clearNodes().run()}
+          tooltip="Clear nodes"
         />
         <Button
           disabled={
@@ -355,6 +350,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
           onClick={() =>
             editor.commands.setContent(editor.options.content, true)
           }
+          tooltip="Reset"
         />
       </div>
     </div>
