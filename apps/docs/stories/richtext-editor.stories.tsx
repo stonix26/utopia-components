@@ -2,6 +2,11 @@ import type { Meta } from '@storybook/react'
 import { Button } from '@utopia/button'
 import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
 import { ScrollArea } from '@utopia/scroll-area'
+import { CheckSquare, Copy } from 'lucide-react'
+import { Switch } from '@utopia/switch'
+import { Label } from '@utopia/label'
+import { useState } from 'react'
+import { useCopyToClipboard } from '../utils/hooks/use-copy-to-clipboard'
 
 const meta: Meta<typeof RichtextEditor> = {
   component: RichtextEditor
@@ -127,10 +132,15 @@ const newContent = {
 
 export function Controlled(): JSX.Element | null {
   const editor = useEditor({ editable: true, content, mentionList })
+  const [value, copy] = useCopyToClipboard()
+  const [checked, setChecked] = useState(false)
 
   if (!editor) {
     return null
   }
+
+  const JSON_STATE = JSON.stringify(editor.getJSON(), null, 2)
+  const HTML_STATE = editor.getHTML()
 
   return (
     <div className="flex flex-col gap-4">
@@ -148,13 +158,43 @@ export function Controlled(): JSX.Element | null {
         </Button>
       </div>
       <RichtextEditor editor={editor} />
-      <ScrollArea className="h-96 w-full rounded border">
-        <pre className="block h-full w-full p-3 text-xs">
-          <code className="language-json" lang="json">
-            {JSON.stringify(editor.getJSON(), null, 2)}
-          </code>
-        </pre>
-      </ScrollArea>
+      <div className="divide-y rounded border">
+        <div className="flex items-center justify-between p-3">
+          <div className="flex items-center space-x-2">
+            <Switch
+              checked={checked}
+              id="state-format"
+              onCheckedChange={() => {
+                setChecked(prev => !prev)
+              }}
+            />
+            <Label htmlFor="state-format">{checked ? 'HTML' : 'JSON'}</Label>
+          </div>
+          <button
+            onClick={() => copy(checked ? HTML_STATE : JSON_STATE)}
+            type="button"
+          >
+            {value ? (
+              <CheckSquare className="h-4 w-4" />
+            ) : (
+              <Copy className="h-4 w-4" />
+            )}
+          </button>
+        </div>
+        <ScrollArea className="h-96 w-full">
+          <pre className="block h-full w-full p-3 text-xs">
+            {checked ? (
+              <code className="html" lang="html">
+                {HTML_STATE}
+              </code>
+            ) : (
+              <code className="language-json" lang="json">
+                {JSON_STATE}
+              </code>
+            )}
+          </pre>
+        </ScrollArea>
+      </div>
     </div>
   )
 }
