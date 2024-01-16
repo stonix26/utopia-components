@@ -49,6 +49,9 @@
     "tsup": "^5.10.1",
     "typescript": "^5.2.2"
   },
+  "peerDependencies": {
+    "@tailwindcss/typography": "^0.5.10"
+  },
   "publishConfig": {
     "access": "public"
   }

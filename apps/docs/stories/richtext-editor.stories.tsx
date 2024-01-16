@@ -1,6 +1,7 @@
 import type { Meta } from '@storybook/react'
 import { Button } from '@utopia/button'
 import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
+import { ScrollArea } from '@utopia/scroll-area'
 
 const meta: Meta<typeof RichtextEditor> = {
   component: RichtextEditor
@@ -131,9 +132,6 @@ export function Controlled(): JSX.Element | null {
     return null
   }
 
-  // eslint-disable-next-line no-console -- logger
-  console.log(editor.getJSON())
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-4">
@@ -150,6 +148,88 @@ export function Controlled(): JSX.Element | null {
         </Button>
       </div>
       <RichtextEditor editor={editor} />
+      <ScrollArea className="h-96 w-full rounded border">
+        <pre className="block h-full w-full p-3 text-xs">
+          <code className="language-json" lang="json">
+            {JSON.stringify(editor.getJSON(), null, 2)}
+          </code>
+        </pre>
+      </ScrollArea>
     </div>
   )
+}
+
+export function SlateTheme(): JSX.Element | null {
+  const editor = useEditor({
+    editable: true,
+    content,
+    mentionList,
+    editorProps: { attributes: { class: 'prose prose-utopia prose-slate' } }
+  })
+
+  if (!editor) {
+    return null
+  }
+
+  return <RichtextEditor editor={editor} />
+}
+
+export function ZincTheme(): JSX.Element | null {
+  const editor = useEditor({
+    editable: true,
+    content,
+    mentionList,
+    editorProps: { attributes: { class: 'prose prose-utopia prose-zinc' } }
+  })
+
+  if (!editor) {
+    return null
+  }
+
+  return <RichtextEditor editor={editor} />
+}
+
+export function NeutralTheme(): JSX.Element | null {
+  const editor = useEditor({
+    editable: true,
+    content,
+    mentionList,
+    editorProps: { attributes: { class: 'prose prose-utopia prose-neutral' } }
+  })
+
+  if (!editor) {
+    return null
+  }
+
+  return <RichtextEditor editor={editor} />
+}
+
+export function StoneTheme(): JSX.Element | null {
+  const editor = useEditor({
+    editable: true,
+    content,
+    mentionList,
+    editorProps: { attributes: { class: 'prose prose-utopia prose-stone' } }
+  })
+
+  if (!editor) {
+    return null
+  }
+
+  return <RichtextEditor editor={editor} />
+}
+
+export function CustomTheme(): JSX.Element | null {
+  const editor = useEditor({
+    editable: true,
+    content,
+    mentionList,
+    editorProps: { attributes: { class: 'prose prose-utopia prose-pink' } }
+  })
+
+  if (!editor) {
+    return null
+  }
+
+  return <RichtextEditor editor={editor} />
 }
