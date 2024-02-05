@@ -10,6 +10,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
+    "preview": "turbo run preview",
     "preview-storybook": "turbo run preview-storybook"
   },
   "devDependencies": {
@@ -21,7 +22,7 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": "^20.9.0"
+    "node": "^20.11.0"
   },
-  "packageManager": "pnpm@8.11.0"
+  "packageManager": "pnpm@8.15.1"
 }
