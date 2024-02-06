@@ -19,10 +19,10 @@
     "@utopia/classnames": "workspace:*"
   },
   "devDependencies": {
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.4",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
     "eslint-config-custom": "workspace:*",
-    "react": "^18.1.0",
+    "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "tsup": "^5.10.1",
     "typescript": "^5.2.2"
