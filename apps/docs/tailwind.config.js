@@ -6,7 +6,8 @@ module.exports = {
   darkMode: ['class'],
   content: [
     '../../packages/**/src/**/*.{js,ts,jsx,tsx}',
-    './stories/**/*.{ts,tsx,mdx}'
+    './stories/**/*.{ts,tsx,mdx}',
+    './examples/**/*.tsx'
   ],
   theme: {
     container: {
