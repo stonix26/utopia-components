@@ -13,9 +13,13 @@ import {
   Slack,
   Twitch
 } from 'lucide-react'
-import { ISidebarData, IUser, IInboxPreview } from './types'
+import type {
+  SidebarDataInterface,
+  UserInterface,
+  InboxPreviewInterface
+} from './types'
 
-export const sidebar_data: ISidebarData = {
+export const SIDEBAR_DATA: SidebarDataInterface = {
   primary: [
     {
       name: 'Inbox',
@@ -85,7 +89,7 @@ export const sidebar_data: ISidebarData = {
   ]
 }
 
-export const user_select: IUser[] = [
+export const USER_SELECT: UserInterface[] = [
   {
     name: 'Alicia Koch',
     value: 'alicia@example.com',
@@ -106,7 +110,7 @@ export const user_select: IUser[] = [
   }
 ]
 
-export const inbox_data: IInboxPreview[] = [
+export const INBOX_DATA: InboxPreviewInterface[] = [
   {
     id: '1',
     sender: 'William Smith',

@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
 export interface SidebarTriggerProps {
   name: string
@@ -7,19 +7,19 @@ export interface SidebarTriggerProps {
   is_active?: boolean
 }
 
-export interface ISidebarData {
+export interface SidebarDataInterface {
   primary: SidebarTriggerProps[]
   secondary: SidebarTriggerProps[]
 }
 
-export interface IUser {
+export interface UserInterface {
   name: string
   value: string
   icon: LucideIcon
   email: string
 }
 
-export interface IInboxPreview {
+export interface InboxPreviewInterface {
   id: string
   sender: string
   read: boolean
