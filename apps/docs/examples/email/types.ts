@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
 export interface SidebarTriggerProps {
@@ -5,6 +6,11 @@ export interface SidebarTriggerProps {
   icon: LucideIcon
   items?: number
   is_active?: boolean
+}
+
+export interface TabsContentProps {
+  value: string
+  children: ReactNode
 }
 
 export interface SidebarDataInterface {
