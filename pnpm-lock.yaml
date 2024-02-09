@@ -1251,6 +1251,9 @@ importers:
       '@utopia/dropdown-menu':
         specifier: workspace:*
         version: link:../dropdown-menu
+      '@utopia/scroll-area':
+        specifier: workspace:*
+        version: link:../scroll-area
       '@utopia/tooltip':
         specifier: workspace:*
         version: link:../tooltip

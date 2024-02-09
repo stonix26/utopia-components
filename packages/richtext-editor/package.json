@@ -36,6 +36,7 @@
     "@utopia/button": "workspace:*",
     "@utopia/classnames": "workspace:*",
     "@utopia/dropdown-menu": "workspace:*",
+    "@utopia/scroll-area": "workspace:*",
     "@utopia/tooltip": "workspace:*",
     "lucide-react": "^0.288.0",
     "tippy.js": "^6.3.7"

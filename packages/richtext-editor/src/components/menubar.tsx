@@ -69,7 +69,7 @@ function Menubar({ editor }: MenubarProps): JSX.Element | null {
   const isEditable = editor.isEditable
 
   return (
-    <div className="flex divide-x border-border p-0.5">
+    <div className="sticky top-0 flex flex-wrap divide-x border-b border-border bg-white p-0.5">
       <div className="flex gap-0.5 px-0.5">
         <Button
           disabled={!isEditable || !editor.can().chain().focus().undo().run()}
