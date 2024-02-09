@@ -22,7 +22,7 @@ const Button = forwardRef<ElementRef<typeof UtopiaButton>, CustomButtonProps>(
     const Icon = props.icon
     const IconRight = props.icon_right
     return props.tooltip ? (
-      <Tooltip>
+      <Tooltip delayDuration={0}>
         <TooltipTrigger asChild>
           <UtopiaButton
             className={cn(

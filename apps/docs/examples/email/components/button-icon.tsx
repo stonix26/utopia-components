@@ -24,7 +24,7 @@ const ButtonIcon: FC<ButtonIconProps & RefAttributes<HTMLButtonElement>> =
         <Icon className="h-4 w-4" />
       </Button>
     ) : (
-      <Tooltip>
+      <Tooltip delayDuration={0}>
         <TooltipTrigger asChild>
           <Button ref={ref} variant={variant} size={size} {...props}>
             <Icon className="h-4 w-4" />
