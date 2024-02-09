@@ -175,7 +175,9 @@ function Email(): React.JSX.Element {
               </div>
             </div>
             <div className="flex h-72 flex-col gap-y-4 p-4">
-              {!editor ? null : <RichtextEditor editor={editor} />}
+              {!editor ? null : (
+                <RichtextEditor className="flex-1" editor={editor} />
+              )}
               <div className="flex justify-between">
                 <div className="flex items-center gap-x-2">
                   <Switch id="mute-thread" />
