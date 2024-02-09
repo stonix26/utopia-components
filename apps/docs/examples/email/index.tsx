@@ -32,15 +32,15 @@ import { Avatar, AvatarFallback, AvatarImage } from '@utopia/avatar'
 import { Switch } from '@utopia/switch'
 import { Label } from '@utopia/label'
 import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
-import { USER_SELECT, SIDEBAR_DATA, INBOX_DATA } from './data'
-import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
-import ButtonIcon from './components/button-icon'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@utopia/dropdown-menu'
+import { USER_SELECT, SIDEBAR_DATA, INBOX_DATA } from './data'
+import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
+import ButtonIcon from './components/button-icon'
 
 function Email(): React.JSX.Element {
   const [user, setUser] = useState(USER_SELECT[0].value)
