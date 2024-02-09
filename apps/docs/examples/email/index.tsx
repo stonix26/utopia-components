@@ -30,6 +30,7 @@ import { Label } from '@utopia/label'
 import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
 import { USER_SELECT, SIDEBAR_DATA, INBOX_DATA } from './data'
 import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
+import ButtonIcon from './components/button-icon'
 
 function Email(): React.JSX.Element {
   const [user, setUser] = useState(USER_SELECT[0].value)
@@ -39,7 +40,7 @@ function Email(): React.JSX.Element {
   const editor = useEditor({ editable: true })
 
   return (
-    <div className="flex h-full max-h-[800px] w-full flex-col border shadow-lg">
+    <div className="flex h-full max-h-[calc(100vh-2rem)] w-full flex-col border shadow-lg">
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel
           collapsedSize={3.25}
@@ -109,34 +110,18 @@ function Email(): React.JSX.Element {
           <div className="flex h-full flex-col">
             <div className="flex h-fit flex-wrap justify-between px-1.5 py-2">
               <div className="flex gap-x-2">
-                <Button size="icon" variant="ghost">
-                  <Archive className="h-4 w-4" />
-                </Button>
-                <Button size="icon" variant="ghost">
-                  <ArchiveX className="h-4 w-4" />
-                </Button>
-                <Button size="icon" variant="ghost">
-                  <Trash2 className="h-4 w-4" />
-                </Button>
+                <ButtonIcon icon={Archive} tooltip="Archive" />
+                <ButtonIcon icon={ArchiveX} tooltip="Move to junk" />
+                <ButtonIcon icon={Trash2} tooltip="Move to trash" />
                 <Separator decorative orientation="vertical" />
-                <Button size="icon" variant="ghost">
-                  <Clock className="h-4 w-4" />
-                </Button>
+                <ButtonIcon icon={Clock} tooltip="Snooze" />
               </div>
               <div className="flex gap-x-2">
-                <Button size="icon" variant="ghost">
-                  <Reply className="h-4 w-4" />
-                </Button>
-                <Button size="icon" variant="ghost">
-                  <ReplyAll className="h-4 w-4" />
-                </Button>
-                <Button size="icon" variant="ghost">
-                  <Forward className="h-4 w-4" />
-                </Button>
+                <ButtonIcon icon={Reply} tooltip="Reply" />
+                <ButtonIcon icon={ReplyAll} tooltip="Reply all" />
+                <ButtonIcon icon={Forward} tooltip="Forward" />
                 <Separator decorative orientation="vertical" />
-                <Button size="icon" variant="ghost">
-                  <MoreVertical className="h-4 w-4" />
-                </Button>
+                <ButtonIcon icon={MoreVertical} />
               </div>
             </div>
             <Separator decorative />
