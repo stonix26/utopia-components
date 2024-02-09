@@ -19,9 +19,13 @@ import {
   ArchiveX,
   Clock,
   Forward,
+  MessageSquare,
+  MicOff,
   MoreVertical,
   Reply,
   ReplyAll,
+  Star,
+  Tag,
   Trash2
 } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@utopia/avatar'
@@ -31,6 +35,12 @@ import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
 import { USER_SELECT, SIDEBAR_DATA, INBOX_DATA } from './data'
 import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
 import ButtonIcon from './components/button-icon'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@utopia/dropdown-menu'
 
 function Email(): React.JSX.Element {
   const [user, setUser] = useState(USER_SELECT[0].value)
@@ -121,7 +131,29 @@ function Email(): React.JSX.Element {
                 <ButtonIcon icon={ReplyAll} tooltip="Reply all" />
                 <ButtonIcon icon={Forward} tooltip="Forward" />
                 <Separator decorative orientation="vertical" />
-                <ButtonIcon icon={MoreVertical} />
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <ButtonIcon icon={MoreVertical} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem>
+                      <MessageSquare className="mr-2 h-4 w-4" />
+                      <span>Mark as unread</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Star className="mr-2 h-4 w-4" />
+                      <span>Star thread</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Tag className="mr-2 h-4 w-4" />
+                      <span>Add label</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <MicOff className="mr-2 h-4 w-4" />
+                      <span>Mute thread</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </div>
             <Separator decorative />
