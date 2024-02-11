@@ -38,11 +38,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@utopia/dropdown-menu'
+import { formatDate } from '../../utils/dates'
 import { USER_SELECT, SIDEBAR_DATA } from './data'
 import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
 import ButtonIcon from './components/button-icon'
 import { useMail } from './hooks'
-import { formatDate } from '../../utils/dates'
 
 function EmailView(): React.JSX.Element {
   const { state, actions } = useMail()
@@ -110,7 +110,9 @@ function EmailView(): React.JSX.Element {
               {state.inbox?.map(i => (
                 <MailPreviewCard
                   key={i.id}
-                  onClick={() => actions.onMailCardClick(i.id)}
+                  onClick={() => {
+                    actions.onMailCardClick(i.id)
+                  }}
                   {...i}
                 />
               ))}
@@ -121,7 +123,9 @@ function EmailView(): React.JSX.Element {
                 .map(k => (
                   <MailPreviewCard
                     key={k.id}
-                    onClick={() => actions.onMailCardClick(k.id)}
+                    onClick={() => {
+                      actions.onMailCardClick(k.id)
+                    }}
                     {...k}
                   />
                 ))}

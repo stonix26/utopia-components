@@ -6,8 +6,8 @@ function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
   return (
     <button
       className="flex w-full flex-col gap-y-2 rounded-md border border-border p-4 hover:bg-accent"
-      type="button"
       onClick={props.onClick}
+      type="button"
     >
       <div className="flex w-full items-center justify-between">
         <p className="inline-flex items-center font-semibold">

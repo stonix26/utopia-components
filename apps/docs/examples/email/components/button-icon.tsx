@@ -1,4 +1,4 @@
-import React, { FC, RefAttributes, forwardRef } from 'react'
+import React, { type FC, type RefAttributes, forwardRef } from 'react'
 import { Button, type ButtonProps } from '@utopia/button'
 import type { LucideIcon } from 'lucide-react'
 import {
@@ -20,13 +20,13 @@ const ButtonIcon: FC<ButtonIconProps & RefAttributes<HTMLButtonElement>> =
   ) {
     const Icon = icon
     return !tooltip ? (
-      <Button ref={ref} variant={variant} size={size} {...props}>
+      <Button ref={ref} size={size} variant={variant} {...props}>
         <Icon className="h-4 w-4" />
       </Button>
     ) : (
       <Tooltip delayDuration={0}>
         <TooltipTrigger asChild>
-          <Button ref={ref} variant={variant} size={size} {...props}>
+          <Button ref={ref} size={size} variant={variant} {...props}>
             <Icon className="h-4 w-4" />
           </Button>
         </TooltipTrigger>

@@ -32,7 +32,7 @@ export interface InboxPreviewInterface {
   date_sent: string
   title: string
   reply_to: string
-  content: string | TrustedHTML
+  content: string
   onClick?: MouseEventHandler<HTMLButtonElement>
   tags: {
     name: string

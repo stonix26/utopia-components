@@ -50,7 +50,7 @@ function Provider({ children }: { children: ReactNode }): React.JSX.Element {
     setThreadDisplay(inbox[0])
   }, [inbox])
 
-  const onMailCardClick = (id: string) => {
+  const onMailCardClick = (id: string): void => {
     if (!inbox) return
     const card = inbox.find(c => c.id === id)
     setThreadDisplay(card)
