@@ -27,6 +27,7 @@ export interface UserInterface {
 
 export interface InboxPreviewInterface {
   id: string
+  avatar_src?: string
   sender: string
   read: boolean
   date_sent: string

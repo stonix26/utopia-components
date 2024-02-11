@@ -39,6 +39,7 @@ import {
   DropdownMenuTrigger
 } from '@utopia/dropdown-menu'
 import { formatDate } from '../../utils/dates'
+import { getInitials } from '../../utils/strings'
 import { USER_SELECT, SIDEBAR_DATA } from './data'
 import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
 import ButtonIcon from './components/button-icon'
@@ -178,10 +179,12 @@ function EmailView(): React.JSX.Element {
               <div className="flex h-fit gap-x-4 p-4">
                 <Avatar>
                   <AvatarImage
-                    alt="@stonix26"
-                    src="https://github.com/stonix26.png"
+                    alt={`Avatar image of ${state.threadDisplay?.sender}`}
+                    src={state.threadDisplay?.avatar_src}
                   />
-                  <AvatarFallback>RE</AvatarFallback>
+                  <AvatarFallback>
+                    {getInitials(state.threadDisplay?.sender ?? 'NA')}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
                   <p className="inline-flex w-full items-center justify-between font-semibold">
