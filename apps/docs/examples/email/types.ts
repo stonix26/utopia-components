@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { MouseEventHandler, ReactNode } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
 export interface SidebarTriggerProps {
@@ -31,7 +31,9 @@ export interface InboxPreviewInterface {
   read: boolean
   date_sent: string
   title: string
-  content: string
+  reply_to: string
+  content: string | TrustedHTML
+  onClick?: MouseEventHandler<HTMLButtonElement>
   tags: {
     name: string
     variant?: 'default' | 'secondary'

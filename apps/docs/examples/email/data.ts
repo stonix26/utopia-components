@@ -115,11 +115,10 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     id: '1',
     sender: 'William Smith',
     read: true,
-    date_sent: '4 months ago',
+    date_sent: '2023-10-22T08:30:00',
     title: 'Meeting tomorrow',
-    content: `Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.
-    Please come prepared with any questions or insights you may have. Looking forward to our meeting!
-    Best regards, William`,
+    reply_to: 'williamsmith@example.com',
+    content: `<p>Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.</p><p></p><p>    Please come prepared with any questions or insights you may have. Looking forward to our meeting!</p><p></p><p></p><p></p><p>    Best regards, William</p>`,
     tags: [
       {
         name: 'meeting',
@@ -139,15 +138,10 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     id: '2',
     sender: 'Alice Smith',
     read: false,
-    date_sent: '4 months ago',
+    date_sent: '2023-12-21T08:30:00',
     title: 'Re: Project Update',
-    content: `Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive. The team has done a fantastic job, and I appreciate the hard work everyone has put in.
-
-    I have a few minor suggestions that I'll include in the attached document.
-    
-    Let's discuss these during our next meeting. Keep up the excellent work!
-    
-    Best regards, Alice`,
+    reply_to: 'alicesmith@example.com',
+    content: `<p>Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive.</p><p>The team has done a fantastic job, and I appreciate the hard work everyone has put in.</p><p></p><p>I have a few minor suggestions that I'll include in the attached document. Let's discuss these during our next meeting.</p><p></p><p>Keep up the excellent work!</p><p></p><p></p><p>Best regards,</p><p>Alice</p>`,
     tags: [
       {
         name: 'work',
@@ -163,221 +157,10 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     id: '3',
     sender: 'Bob Johnson',
     read: false,
-    date_sent: '10 months ago',
+    date_sent: '2023-01-14T08:30:00',
     title: 'Weekend Plans',
-    content: `Any plans for the weekend? I was thinking of going hiking in the nearby mountains. It's been a while since we had some outdoor fun.
-
-    If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.
-    
-    Looking forward to your response!
-    
-    Best, Bob`,
-    tags: [
-      {
-        name: 'personal',
-        variant: 'secondary'
-      }
-    ]
-  },
-
-  {
-    id: '4',
-    sender: 'William Smith',
-    read: true,
-    date_sent: '4 months ago',
-    title: 'Meeting tomorrow',
-    content: `Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.
-    Please come prepared with any questions or insights you may have. Looking forward to our meeting!
-    Best regards, William`,
-    tags: [
-      {
-        name: 'meeting',
-        variant: 'secondary'
-      },
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '5',
-    sender: 'Alice Smith',
-    read: true,
-    date_sent: '4 months ago',
-    title: 'Re: Project Update',
-    content: `Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive. The team has done a fantastic job, and I appreciate the hard work everyone has put in.
-
-    I have a few minor suggestions that I'll include in the attached document.
-    
-    Let's discuss these during our next meeting. Keep up the excellent work!
-    
-    Best regards, Alice`,
-    tags: [
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '6',
-    sender: 'Bob Johnson',
-    read: true,
-    date_sent: '10 months ago',
-    title: 'Weekend Plans',
-    content: `Any plans for the weekend? I was thinking of going hiking in the nearby mountains. It's been a while since we had some outdoor fun.
-
-    If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.
-    
-    Looking forward to your response!
-    
-    Best, Bob`,
-    tags: [
-      {
-        name: 'personal',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '7',
-    sender: 'William Smith',
-    read: true,
-    date_sent: '4 months ago',
-    title: 'Meeting tomorrow',
-    content: `Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.
-    Please come prepared with any questions or insights you may have. Looking forward to our meeting!
-    Best regards, William`,
-    tags: [
-      {
-        name: 'meeting',
-        variant: 'secondary'
-      },
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '8',
-    sender: 'Alice Smith',
-    read: false,
-    date_sent: '4 months ago',
-    title: 'Re: Project Update',
-    content: `Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive. The team has done a fantastic job, and I appreciate the hard work everyone has put in.
-
-    I have a few minor suggestions that I'll include in the attached document.
-    
-    Let's discuss these during our next meeting. Keep up the excellent work!
-    
-    Best regards, Alice`,
-    tags: [
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '9',
-    sender: 'Bob Johnson',
-    read: false,
-    date_sent: '10 months ago',
-    title: 'Weekend Plans',
-    content: `Any plans for the weekend? I was thinking of going hiking in the nearby mountains. It's been a while since we had some outdoor fun.
-
-    If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.
-    
-    Looking forward to your response!
-    
-    Best, Bob`,
-    tags: [
-      {
-        name: 'personal',
-        variant: 'secondary'
-      }
-    ]
-  },
-
-  {
-    id: '10',
-    sender: 'William Smith',
-    read: true,
-    date_sent: '4 months ago',
-    title: 'Meeting tomorrow',
-    content: `Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.
-    Please come prepared with any questions or insights you may have. Looking forward to our meeting!
-    Best regards, William`,
-    tags: [
-      {
-        name: 'meeting',
-        variant: 'secondary'
-      },
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '11',
-    sender: 'Alice Smith',
-    read: true,
-    date_sent: '4 months ago',
-    title: 'Re: Project Update',
-    content: `Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive. The team has done a fantastic job, and I appreciate the hard work everyone has put in.
-
-    I have a few minor suggestions that I'll include in the attached document.
-    
-    Let's discuss these during our next meeting. Keep up the excellent work!
-    
-    Best regards, Alice`,
-    tags: [
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
-  },
-  {
-    id: '12',
-    sender: 'Bob Johnson',
-    read: true,
-    date_sent: '10 months ago',
-    title: 'Weekend Plans',
-    content: `Any plans for the weekend? I was thinking of going hiking in the nearby mountains. It's been a while since we had some outdoor fun.
-
-    If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.
-    
-    Looking forward to your response!
-    
-    Best, Bob`,
+    reply_to: 'bobjohnson@example.com',
+    content: `<p>Any plans for the weekend?</p><p>I was thinking of going hiking in the nearby mountains.</p><p>It's been a while since we had some outdoor fun.</p><p></p><p>If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.</p><p></p><p>Looking forward to your response!</p><p></p><p></p><p>Best,</p><p>Bob</p>`,
     tags: [
       {
         name: 'personal',

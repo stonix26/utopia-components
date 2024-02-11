@@ -1,12 +1,13 @@
 import { Badge } from '@utopia/badge'
 import type { InboxPreviewInterface } from '../types'
+import { formatDateToRelative } from '../../../utils/dates'
 
 function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
   return (
     <button
       className="flex w-full flex-col gap-y-2 rounded-md border border-border p-4 hover:bg-accent"
-      id={props.id}
       type="button"
+      onClick={props.onClick}
     >
       <div className="flex w-full items-center justify-between">
         <p className="inline-flex items-center font-semibold">
@@ -15,12 +16,15 @@ function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
             <span className="ml-2 inline-block h-2 w-2 rounded-full bg-blue-500" />
           )}
         </p>
-        <p className="text-xs text-foreground">{props.date_sent}</p>
+        <p className="text-xs text-foreground">
+          {formatDateToRelative(props.date_sent)}
+        </p>
       </div>
       <p className="text-xs font-medium">{props.title}</p>
-      <div className="line-clamp-2 text-left text-xs text-muted-foreground">
-        {props.content}
-      </div>
+      <div
+        className="line-clamp-2 text-left text-xs text-muted-foreground"
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      />
       <div className="flex gap-2">
         {props.tags.map(tag => (
           <Badge
