@@ -38,7 +38,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@utopia/dropdown-menu'
-import { formatDate } from '../../utils/dates'
+import format from 'date-fns/format'
 import { getInitials } from '../../utils/strings'
 import { USER_SELECT, SIDEBAR_DATA } from './data'
 import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
@@ -52,16 +52,32 @@ function EmailView(): React.JSX.Element {
   const UserIcon = USER_SELECT[userIndex].icon
 
   const editor = useEditor({ editable: true })
+  const [isCollapsed, setIsCollapsed] = useState(false)
+
+  console.log('isCollapsed: ', isCollapsed)
 
   return (
     <div className="flex h-full max-h-[calc(100vh-2rem)] w-full flex-col border shadow-lg">
-      <ResizablePanelGroup direction="horizontal">
+      <ResizablePanelGroup
+        direction="horizontal"
+        onLayout={layout => {
+          document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+            layout
+          )}`
+        }}
+      >
         <ResizablePanel
-          collapsedSize={3.25}
+          collapsedSize={4}
           collapsible
           defaultSize={15}
-          maxSize={15}
+          maxSize={20}
           minSize={10}
+          onCollapse={() => {
+            setIsCollapsed(true)
+          }}
+          onExpand={() => {
+            setIsCollapsed(false)
+          }}
         >
           <div className="flex h-full flex-col">
             <div className="h-fit p-1.5 py-2">
@@ -193,7 +209,10 @@ function EmailView(): React.JSX.Element {
                     </span>
                     <span className="line-clamp-3 text-xs font-normal text-muted-foreground">
                       {state.threadDisplay?.date_sent
-                        ? formatDate(state.threadDisplay.date_sent)
+                        ? format(
+                            new Date(state.threadDisplay.date_sent),
+                            'PPpp'
+                          )
                         : null}
                     </span>
                   </p>

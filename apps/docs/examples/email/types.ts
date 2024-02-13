@@ -35,8 +35,5 @@ export interface InboxPreviewInterface {
   reply_to: string
   content: string
   onClick?: MouseEventHandler<HTMLButtonElement>
-  tags: {
-    name: string
-    variant?: 'default' | 'secondary'
-  }[]
+  tags: string[]
 }

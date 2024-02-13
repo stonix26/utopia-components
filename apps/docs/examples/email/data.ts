@@ -119,20 +119,7 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     title: 'Meeting tomorrow',
     reply_to: 'williamsmith@example.com',
     content: `<p>Hi, let's have a meeting tomorrow to discuss the project. I've been reviewing the project details and have some ideas I'd like to share. It's crucial that we align on our next steps to ensure the project's success.</p><p></p><p>    Please come prepared with any questions or insights you may have. Looking forward to our meeting!</p><p></p><p></p><p></p><p>    Best regards, William</p>`,
-    tags: [
-      {
-        name: 'meeting',
-        variant: 'secondary'
-      },
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
+    tags: ['meeting', 'work', 'important']
   },
   {
     id: '2',
@@ -142,16 +129,7 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     title: 'Re: Project Update',
     reply_to: 'alicesmith@example.com',
     content: `<p>Thank you for the project update. It looks great! I've gone through the report, and the progress is impressive.</p><p>The team has done a fantastic job, and I appreciate the hard work everyone has put in.</p><p></p><p>I have a few minor suggestions that I'll include in the attached document. Let's discuss these during our next meeting.</p><p></p><p>Keep up the excellent work!</p><p></p><p></p><p>Best regards,</p><p>Alice</p>`,
-    tags: [
-      {
-        name: 'work',
-        variant: 'default'
-      },
-      {
-        name: 'important',
-        variant: 'secondary'
-      }
-    ]
+    tags: ['work', 'important']
   },
   {
     id: '3',
@@ -161,11 +139,6 @@ export const INBOX_DATA: InboxPreviewInterface[] = [
     title: 'Weekend Plans',
     reply_to: 'bobjohnson@example.com',
     content: `<p>Any plans for the weekend?</p><p>I was thinking of going hiking in the nearby mountains.</p><p>It's been a while since we had some outdoor fun.</p><p></p><p>If you're interested, let me know, and we can plan the details. It'll be a great way to unwind and enjoy nature.</p><p></p><p>Looking forward to your response!</p><p></p><p></p><p>Best,</p><p>Bob</p>`,
-    tags: [
-      {
-        name: 'personal',
-        variant: 'secondary'
-      }
-    ]
+    tags: ['personal']
   }
 ]

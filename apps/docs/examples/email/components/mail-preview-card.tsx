@@ -1,6 +1,7 @@
+import { ComponentProps } from 'react'
 import { Badge } from '@utopia/badge'
 import type { InboxPreviewInterface } from '../types'
-import { formatDateToRelative } from '../../../utils/dates'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
   return (
@@ -17,7 +18,7 @@ function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
           )}
         </p>
         <p className="text-xs text-foreground">
-          {formatDateToRelative(props.date_sent)}
+          {formatDistanceToNow(new Date(props.date_sent), { addSuffix: true })}
         </p>
       </div>
       <p className="text-xs font-medium">{props.title}</p>
@@ -29,10 +30,10 @@ function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
         {props.tags.map(tag => (
           <Badge
             className="rounded-md"
-            key={tag.name}
-            variant={tag.variant ?? 'default'}
+            key={tag}
+            variant={getBadgeVariantFromTags(tag)}
           >
-            {tag.name}
+            {tag}
           </Badge>
         ))}
       </div>
@@ -41,3 +42,17 @@ function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
 }
 
 export default MailPreviewCard
+
+function getBadgeVariantFromTags(
+  tag: string
+): ComponentProps<typeof Badge>['variant'] {
+  if (['work'].includes(tag.toLocaleLowerCase())) {
+    return 'default'
+  }
+
+  if (['personal'].includes(tag.toLocaleLowerCase())) {
+    return 'outline'
+  }
+
+  return 'secondary'
+}
