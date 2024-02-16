@@ -38,6 +38,7 @@
     "@utopia/navigation-menu": "workspace:*",
     "@utopia/popover": "workspace:*",
     "@utopia/progress": "workspace:*",
+    "@utopia/rac-button": "workspace:^",
     "@utopia/radio-group": "workspace:*",
     "@utopia/resizable": "workspace:*",
     "@utopia/richtext-editor": "workspace:*",
