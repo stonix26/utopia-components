@@ -25,34 +25,34 @@ export const SIDEBAR_DATA: SidebarDataInterface = {
       name: 'Inbox',
       icon: Inbox,
       items: 128,
-      is_active: true
+      isActive: true
     },
     {
       name: 'Drafts',
       icon: File,
       items: 11,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Sent',
       icon: Send,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Junk',
       icon: ArchiveX,
       items: 23,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Trash',
       icon: Trash2,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Archive',
       icon: Archive,
-      is_active: false
+      isActive: false
     }
   ],
   secondary: [
@@ -60,31 +60,31 @@ export const SIDEBAR_DATA: SidebarDataInterface = {
       name: 'Social',
       icon: Users2,
       items: 972,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Updates',
       icon: AlertCircle,
       items: 342,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Forums',
       icon: MessageSquare,
       items: 128,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Shopping',
       icon: ShoppingCart,
       items: 8,
-      is_active: false
+      isActive: false
     },
     {
       name: 'Promotions',
       icon: Archive,
       items: 21,
-      is_active: false
+      isActive: false
     }
   ]
 }

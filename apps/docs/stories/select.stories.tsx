@@ -3,6 +3,7 @@ import {
   Select,
   SelectContent,
   SelectGroup,
+  SelectIcon,
   SelectItem,
   SelectLabel,
   SelectTrigger,
@@ -22,6 +23,7 @@ export const Default: Story = {
     <Select {...args}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select a fruit" />
+        <SelectIcon />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

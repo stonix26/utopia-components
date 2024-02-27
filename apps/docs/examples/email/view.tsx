@@ -4,13 +4,6 @@ import {
   ResizablePanel,
   ResizablePanelGroup
 } from '@utopia/resizable'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@utopia/select'
 import { Tabs, TabsList, TabsTrigger } from '@utopia/tabs'
 import { Separator } from '@utopia/separator'
 import { Button } from '@utopia/button'
@@ -41,20 +34,20 @@ import {
 import format from 'date-fns/format'
 import { getInitials } from '../../utils/strings'
 import { USER_SELECT, SIDEBAR_DATA } from './data'
-import { MailPreviewCard, SidebarTrigger, TabsContent } from './components'
+import {
+  MailPreviewCard,
+  SidebarMenu,
+  TabsContent,
+  UserSelect
+} from './components'
 import ButtonIcon from './components/button-icon'
 import { useMail } from './hooks'
 
 function EmailView(): React.JSX.Element {
   const { state, actions } = useMail()
   const [user, setUser] = useState(USER_SELECT[0].value)
-  const userIndex = USER_SELECT.findIndex(e => e.value === user)
-  const UserIcon = USER_SELECT[userIndex].icon
-
   const editor = useEditor({ editable: true })
   const [isCollapsed, setIsCollapsed] = useState(false)
-
-  console.log('isCollapsed: ', isCollapsed)
 
   return (
     <div className="flex h-full max-h-[calc(100vh-2rem)] w-full flex-col border shadow-lg">
@@ -81,35 +74,15 @@ function EmailView(): React.JSX.Element {
         >
           <div className="flex h-full flex-col">
             <div className="h-fit p-1.5 py-2">
-              <Select onValueChange={setUser} value={user}>
-                <SelectTrigger>
-                  <SelectValue aria-label={user}>
-                    <div className="flex items-center">
-                      <UserIcon className="mr-2 inline h-4 w-4" />
-                      <span>{USER_SELECT[userIndex].name}</span>
-                    </div>
-                  </SelectValue>
-                </SelectTrigger>
-                <SelectContent>
-                  {USER_SELECT.map(u => (
-                    <SelectItem key={u.email} value={u.value}>
-                      {u.email}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <UserSelect
+                isCollapsed={isCollapsed}
+                setUser={setUser}
+                user={user}
+                users={USER_SELECT}
+              />
             </div>
             <Separator decorative />
-            <div className="flex h-fit flex-col gap-1 border-b px-1.5 py-2">
-              {SIDEBAR_DATA.primary.map(c => (
-                <SidebarTrigger key={c.name} {...c} />
-              ))}
-            </div>
-            <div className="flex h-full flex-col gap-1 px-1.5 py-2">
-              {SIDEBAR_DATA.secondary.map(c => (
-                <SidebarTrigger key={c.name} {...c} />
-              ))}
-            </div>
+            <SidebarMenu isCollapsed={isCollapsed} items={SIDEBAR_DATA} />
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />

@@ -5,7 +5,8 @@ export interface SidebarTriggerProps {
   name: string
   icon: LucideIcon
   items?: number
-  is_active?: boolean
+  isActive?: boolean
+  isCollasped?: boolean
 }
 
 export interface TabsContentProps {
