@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Skeleton } from '@utopia/skeleton'
+import { Skeleton } from '@utopia/radix-skeleton'
 
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton

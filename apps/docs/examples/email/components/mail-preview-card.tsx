@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react'
-import { Badge } from '@utopia/badge'
+import { Badge } from '@utopia/radix-badge'
 import type { InboxPreviewInterface } from '../types'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 

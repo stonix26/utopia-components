@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { ScrollArea } from '@utopia/scroll-area'
-import { Separator } from '@utopia/separator'
+import { ScrollArea } from '@utopia/radix-scroll-area'
+import { Separator } from '@utopia/radix-separator'
 
 const meta: Meta<typeof ScrollArea> = {
   component: ScrollArea

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Slider } from '@utopia/slider'
+import { Slider } from '@utopia/radix-slider'
 
 const meta: Meta<typeof Slider> = {
   component: Slider

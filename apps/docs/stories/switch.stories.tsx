@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Label } from '@utopia/label'
-import { Switch } from '@utopia/switch'
+import { Label } from '@utopia/radix-label'
+import { Switch } from '@utopia/radix-switch'
 
 const meta: Meta<typeof Switch> = {
   component: Switch

@@ -10,10 +10,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@utopia/form'
-import { Checkbox } from '@utopia/checkbox'
-import { Button } from '@utopia/button'
-import { toast } from '@utopia/toast'
+} from '@utopia/radix-form'
+import { Checkbox } from '@utopia/radix-checkbox'
+import { Button } from '@utopia/radix-button'
+import { toast } from '@utopia/radix-toast'
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox

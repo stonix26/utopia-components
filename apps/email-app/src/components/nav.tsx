@@ -1,7 +1,7 @@
 import { LucideIcon } from 'lucide-react'
 import { cn } from '@utopia/classnames'
-import { buttonVariants } from '@utopia/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@utopia/tooltip'
+import { buttonVariants } from '@utopia/radix-button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@utopia/radix-tooltip'
 
 interface NavProps {
   isCollapsed: boolean

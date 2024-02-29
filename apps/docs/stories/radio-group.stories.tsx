@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Label } from '@utopia/label'
-import { RadioGroup, RadioGroupItem } from '@utopia/radio-group'
+import { Label } from '@utopia/radix-label'
+import { RadioGroup, RadioGroupItem } from '@utopia/radix-radio-group'
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup

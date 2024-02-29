@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '@utopia/select'
+} from '@utopia/radix-select'
 
 interface AccountSwitcherProps {
   isCollapsed: boolean

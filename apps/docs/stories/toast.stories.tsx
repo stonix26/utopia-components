@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
-import { Button } from '@utopia/button'
-import { ToastAction, useToast } from '@utopia/toast'
+import { Button } from '@utopia/radix-button'
+import { ToastAction, useToast } from '@utopia/radix-toast'
 
 const meta: Meta = {
   title: 'Toast'

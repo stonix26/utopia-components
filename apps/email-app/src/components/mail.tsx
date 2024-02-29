@@ -19,15 +19,15 @@ import { Nav } from './nav'
 import type { Mail } from '../data'
 import { useMail } from '../use-mail'
 import { cn } from '@utopia/classnames'
-import { Separator } from '@utopia/separator'
-import { Input } from '@utopia/input'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@utopia/tabs'
-import { TooltipProvider } from '@utopia/tooltip'
+import { Separator } from '@utopia/radix-separator'
+import { Input } from '@utopia/radix-input'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@utopia/radix-tabs'
+import { TooltipProvider } from '@utopia/radix-tooltip'
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup
-} from '@utopia/resizable'
+} from '@utopia/radix-resizable'
 
 interface MailProps {
   accounts: {

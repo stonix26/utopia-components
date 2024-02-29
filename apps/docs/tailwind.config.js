@@ -1,13 +1,16 @@
-import AccordionTwPreset from '@utopia/accordion/tw-keyframes'
+import AccordionTwPreset from '@utopia/radix-accordion/tw-keyframes'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [AccordionTwPreset],
   darkMode: ['class'],
   content: [
-    '../../packages/**/src/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{ts,tsx,mdx}',
-    './examples/**/*.tsx'
+    './examples/**/*.tsx',
+    '../../common/**/src/**/*.{js,ts,jsx,tsx}',
+    '../../radix/**/src/**/*.{js,ts,jsx,tsx}',
+    '../../react-aria/**/src/**/*.{js,ts,jsx,tsx}',
+    '../../zag/**/src/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     container: {

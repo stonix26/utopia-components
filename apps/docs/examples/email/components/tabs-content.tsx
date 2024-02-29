@@ -1,7 +1,7 @@
 import React from 'react'
-import { TabsContent as TabsContentPrimitive } from '@utopia/tabs'
-import { Input } from '@utopia/input'
-import { ScrollArea } from '@utopia/scroll-area'
+import { TabsContent as TabsContentPrimitive } from '@utopia/radix-tabs'
+import { Input } from '@utopia/radix-input'
+import { ScrollArea } from '@utopia/radix-scroll-area'
 import type { TabsContentProps } from '../types'
 
 function TabsContent({ children, value }: TabsContentProps): React.JSX.Element {

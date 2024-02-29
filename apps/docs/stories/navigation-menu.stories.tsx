@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
-} from '@utopia/navigation-menu'
+} from '@utopia/radix-navigation-menu'
 
 const meta: Meta<typeof NavigationMenu> = {
   component: NavigationMenu

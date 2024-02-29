@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '@utopia/select'
+} from '@utopia/radix-select'
 import React from 'react'
 import type { UserInterface } from '../types'
 

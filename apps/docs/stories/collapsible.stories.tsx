@@ -1,12 +1,12 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ChevronsUpDown } from 'lucide-react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger
-} from '@utopia/collapsible'
+} from '@utopia/radix-collapsible'
 
 const meta: Meta<typeof Collapsible> = {
   component: Collapsible

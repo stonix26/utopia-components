@@ -18,7 +18,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut
-} from '@utopia/command'
+} from '@utopia/radix-command'
 
 const meta: Meta<typeof Command> = {
   component: Command

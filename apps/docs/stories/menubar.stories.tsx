@@ -13,7 +13,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger
-} from '@utopia/menubar'
+} from '@utopia/radix-menubar'
 
 const meta: Meta<typeof Menubar> = {
   component: Menubar

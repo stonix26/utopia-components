@@ -1,8 +1,8 @@
 import { ComponentProps } from 'react'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { cn } from '@utopia/classnames'
-import { Badge } from '@utopia/badge'
-import { ScrollArea } from '@utopia/scroll-area'
+import { Badge } from '@utopia/radix-badge'
+import { ScrollArea } from '@utopia/radix-scroll-area'
 import { Mail } from '../data'
 import { useMail } from '../use-mail'
 

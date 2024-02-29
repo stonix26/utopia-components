@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Dialog,
   DialogClose,
@@ -9,9 +9,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@utopia/dialog'
-import { Input } from '@utopia/input'
-import { Label } from '@utopia/label'
+} from '@utopia/radix-dialog'
+import { Input } from '@utopia/radix-input'
+import { Label } from '@utopia/radix-label'
 import { Copy } from 'lucide-react'
 
 const meta: Meta<typeof Dialog> = {

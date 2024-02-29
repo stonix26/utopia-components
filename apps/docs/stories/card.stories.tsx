@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Card,
   CardContent,
@@ -7,16 +7,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from '@utopia/card'
-import { Input } from '@utopia/input'
-import { Label } from '@utopia/label'
+} from '@utopia/radix-card'
+import { Input } from '@utopia/radix-input'
+import { Label } from '@utopia/radix-label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '@utopia/select'
+} from '@utopia/radix-select'
 
 const meta: Meta<typeof Card> = {
   component: Card

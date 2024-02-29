@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Input } from '@utopia/input'
-import { Button } from '@utopia/button'
-import { toast } from '@utopia/toast'
+import { Input } from '@utopia/radix-input'
+import { Button } from '@utopia/radix-button'
+import { toast } from '@utopia/radix-toast'
 import {
   Form,
   FormControl,
@@ -13,7 +13,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@utopia/form'
+} from '@utopia/radix-form'
 
 const meta: Meta<typeof Input> = {
   component: Input

@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '@utopia/accordion'
+} from '@utopia/radix-accordion'
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion

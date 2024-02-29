@@ -17,16 +17,16 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem
-} from '@utopia/dropdown-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@utopia/avatar'
-import { Button } from '@utopia/button'
-import { Calendar } from '@utopia/calendar'
-import { Label } from '@utopia/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@utopia/popover'
-import { Separator } from '@utopia/separator'
-import { Switch } from '@utopia/switch'
-import { Textarea } from '@utopia/textarea'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@utopia/tooltip'
+} from '@utopia/radix-dropdown-menu'
+import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'
+import { Button } from '@utopia/radix-button'
+import { Calendar } from '@utopia/radix-calendar'
+import { Label } from '@utopia/radix-label'
+import { Popover, PopoverContent, PopoverTrigger } from '@utopia/radix-popover'
+import { Separator } from '@utopia/radix-separator'
+import { Switch } from '@utopia/radix-switch'
+import { Textarea } from '@utopia/radix-textarea'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@utopia/radix-tooltip'
 import { Mail } from '../data'
 
 interface MailDisplayProps {

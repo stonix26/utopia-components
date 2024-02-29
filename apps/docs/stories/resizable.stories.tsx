@@ -3,7 +3,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup
-} from '@utopia/resizable'
+} from '@utopia/radix-resizable'
 
 const meta: Meta<typeof ResizablePanel> = {
   component: ResizablePanel

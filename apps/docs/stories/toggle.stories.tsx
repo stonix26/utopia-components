@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Bold, Italic, Underline } from 'lucide-react'
-import { Toggle } from '@utopia/toggle'
+import { Toggle } from '@utopia/radix-toggle'
 
 const meta: Meta<typeof Toggle> = {
   component: Toggle

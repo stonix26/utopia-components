@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Label } from '@utopia/label'
-import { Checkbox } from '@utopia/checkbox'
+import { Label } from '@utopia/radix-label'
+import { Checkbox } from '@utopia/radix-checkbox'
 
 const meta: Meta<typeof Label> = {
   component: Label

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Tooltip,
   TooltipContent,
   TooltipPortal,
   // TooltipProvider,
   TooltipTrigger
-} from '@utopia/tooltip'
+} from '@utopia/radix-tooltip'
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip

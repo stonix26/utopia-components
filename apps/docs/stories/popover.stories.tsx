@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
-import { Input } from '@utopia/input'
-import { Label } from '@utopia/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@utopia/popover'
+import { Button } from '@utopia/radix-button'
+import { Input } from '@utopia/radix-input'
+import { Label } from '@utopia/radix-label'
+import { Popover, PopoverContent, PopoverTrigger } from '@utopia/radix-popover'
 
 const meta: Meta<typeof Popover> = {
   component: Popover

@@ -3,10 +3,10 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup
-} from '@utopia/resizable'
-import { Tabs, TabsList, TabsTrigger } from '@utopia/tabs'
-import { Separator } from '@utopia/separator'
-import { Button } from '@utopia/button'
+} from '@utopia/radix-resizable'
+import { Tabs, TabsList, TabsTrigger } from '@utopia/radix-tabs'
+import { Separator } from '@utopia/radix-separator'
+import { Button } from '@utopia/radix-button'
 import {
   Archive,
   ArchiveX,
@@ -21,16 +21,16 @@ import {
   Tag,
   Trash2
 } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@utopia/avatar'
-import { Switch } from '@utopia/switch'
-import { Label } from '@utopia/label'
-import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
+import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'
+import { Switch } from '@utopia/radix-switch'
+import { Label } from '@utopia/radix-label'
+import { RichtextEditor, useEditor } from '@utopia/radix-richtext-editor'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@utopia/dropdown-menu'
+} from '@utopia/radix-dropdown-menu'
 import format from 'date-fns/format'
 import { getInitials } from '../../utils/strings'
 import { USER_SELECT, SIDEBAR_DATA } from './data'

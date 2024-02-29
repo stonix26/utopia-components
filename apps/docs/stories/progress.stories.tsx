@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Progress } from '@utopia/progress'
+import { Progress } from '@utopia/radix-progress'
 
 const meta: Meta<typeof Progress> = {
   component: Progress

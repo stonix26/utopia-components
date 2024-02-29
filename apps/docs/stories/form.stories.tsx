@@ -10,10 +10,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@utopia/form'
-import { Button } from '@utopia/button'
-import { Input } from '@utopia/input'
-import { toast } from '@utopia/toast'
+} from '@utopia/radix-form'
+import { Button } from '@utopia/radix-button'
+import { Input } from '@utopia/radix-input'
+import { toast } from '@utopia/radix-toast'
 
 const meta: Meta = {
   component: Form

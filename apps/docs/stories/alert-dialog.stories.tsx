@@ -9,8 +9,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@utopia/alert-dialog'
-import { Button } from '@utopia/button'
+} from '@utopia/radix-alert-dialog'
+import { Button } from '@utopia/radix-button'
 
 const meta: Meta<typeof AlertDialog> = {
   component: AlertDialog

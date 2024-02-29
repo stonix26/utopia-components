@@ -8,7 +8,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue
-} from '@utopia/select'
+} from '@utopia/radix-select'
 
 const meta: Meta<typeof Select> = {
   component: Select

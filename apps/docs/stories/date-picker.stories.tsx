@@ -4,20 +4,20 @@ import { addDays, format } from 'date-fns'
 import type { DateRange } from 'react-day-picker'
 import { Calendar as CalendarIcon } from 'lucide-react'
 import { cn } from '@utopia/classnames'
-import { Button } from '@utopia/button'
-import { Calendar } from '@utopia/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@utopia/popover'
+import { Button } from '@utopia/radix-button'
+import { Calendar } from '@utopia/radix-calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@utopia/radix-popover'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '@utopia/select'
+} from '@utopia/radix-select'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from '@utopia/toast'
+import { toast } from '@utopia/radix-toast'
 import {
   Form,
   FormControl,
@@ -26,7 +26,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@utopia/form'
+} from '@utopia/radix-form'
 
 function DatePickerDemo(): JSX.Element {
   const [date, setDate] = React.useState<Date>()

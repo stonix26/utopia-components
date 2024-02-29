@@ -16,7 +16,7 @@ import {
   MoreHorizontal
 } from 'lucide-react'
 import { cn } from '@utopia/classnames'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Command,
   CommandEmpty,
@@ -24,8 +24,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList
-} from '@utopia/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@utopia/popover'
+} from '@utopia/radix-command'
+import { Popover, PopoverContent, PopoverTrigger } from '@utopia/radix-popover'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,7 +38,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@utopia/dropdown-menu'
+} from '@utopia/radix-dropdown-menu'
 
 const frameworks = [
   {

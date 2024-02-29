@@ -18,26 +18,6 @@ const config = {
 
   core: {},
 
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
-    return {
-      ...config,
-      define: { 'process.env': {} },
-      resolve: {
-        alias: [
-          {
-            find: '@utopia/button',
-            replacement: resolve(__dirname, '../../../packages/button/')
-          },
-          {
-            find: '@utopia/classnames',
-            replacement: resolve(__dirname, '../../../packages/classnames/')
-          }
-        ]
-      }
-    }
-  },
-
   docs: {
     autodocs: true
   }

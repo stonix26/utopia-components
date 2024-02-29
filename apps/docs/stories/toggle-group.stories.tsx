@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Bold, Italic, Underline } from 'lucide-react'
-import { ToggleGroup, ToggleGroupItem } from '@utopia/toggle-group'
+import { ToggleGroup, ToggleGroupItem } from '@utopia/radix-toggle-group'
 
 const meta: Meta<typeof ToggleGroup> = {
   component: ToggleGroup

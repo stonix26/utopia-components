@@ -16,7 +16,7 @@ import {
   UserPlus,
   Users
 } from 'lucide-react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -33,7 +33,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@utopia/dropdown-menu'
+} from '@utopia/radix-dropdown-menu'
 
 const meta: Meta<typeof DropdownMenu> = {
   component: DropdownMenu

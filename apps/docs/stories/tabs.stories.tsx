@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import {
   Card,
   CardContent,
@@ -7,10 +7,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from '@utopia/card'
-import { Input } from '@utopia/input'
-import { Label } from '@utopia/label'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@utopia/tabs'
+} from '@utopia/radix-card'
+import { Input } from '@utopia/radix-input'
+import { Label } from '@utopia/radix-label'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@utopia/radix-tabs'
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs

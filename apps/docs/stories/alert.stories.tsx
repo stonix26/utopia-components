@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Alert, AlertDescription, AlertTitle } from '@utopia/alert'
+import { Alert, AlertDescription, AlertTitle } from '@utopia/radix-alert'
 import { Terminal } from 'lucide-react'
 
 const meta: Meta<typeof Alert> = {

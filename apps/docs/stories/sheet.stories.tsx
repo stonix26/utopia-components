@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@utopia/button'
-import { Input } from '@utopia/input'
-import { Label } from '@utopia/label'
+import { Button } from '@utopia/radix-button'
+import { Input } from '@utopia/radix-input'
+import { Label } from '@utopia/radix-label'
 import {
   Sheet,
   SheetClose,
@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from '@utopia/sheet'
+} from '@utopia/radix-sheet'
 
 const meta: Meta<typeof Sheet> = {
   component: Sheet

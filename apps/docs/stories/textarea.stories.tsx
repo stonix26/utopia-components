@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Textarea } from '@utopia/textarea'
+import { Textarea } from '@utopia/radix-textarea'
 
 const meta: Meta<typeof Textarea> = {
   component: Textarea

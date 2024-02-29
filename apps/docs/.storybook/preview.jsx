@@ -1,6 +1,6 @@
 import React from 'react'
-import { TooltipProvider } from '@utopia/tooltip'
-import { Toaster } from '@utopia/toast'
+import { TooltipProvider } from '@utopia/radix-tooltip'
+import { Toaster } from '@utopia/radix-toast'
 import '../index.css'
 
 export default {

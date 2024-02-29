@@ -1,12 +1,12 @@
 import React, { type FC, type RefAttributes, forwardRef } from 'react'
-import { Button, type ButtonProps } from '@utopia/button'
+import { Button, type ButtonProps } from '@utopia/radix-button'
 import type { LucideIcon } from 'lucide-react'
 import {
   Tooltip,
   TooltipContent,
   TooltipPortal,
   TooltipTrigger
-} from '@utopia/tooltip'
+} from '@utopia/radix-tooltip'
 
 interface ButtonIconProps extends Omit<ButtonProps, 'children'> {
   icon: LucideIcon

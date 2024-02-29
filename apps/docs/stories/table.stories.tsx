@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from '@utopia/table'
+} from '@utopia/radix-table'
 
 const meta: Meta<typeof Table> = {
   component: Table

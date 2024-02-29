@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@utopia/button'
+import { Button } from '@utopia/radix-button'
 import type { SidebarDataInterface, SidebarTriggerProps } from '../types'
 
 function SidebarTrigger(props: SidebarTriggerProps): JSX.Element {

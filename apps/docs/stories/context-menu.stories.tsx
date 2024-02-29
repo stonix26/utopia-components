@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger
-} from '@utopia/context-menu'
+} from '@utopia/radix-context-menu'
 
 const meta: Meta<typeof ContextMenu> = {
   component: ContextMenu

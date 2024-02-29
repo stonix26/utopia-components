@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { CalendarDays } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@utopia/avatar'
-import { Button } from '@utopia/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'
+import { Button } from '@utopia/radix-button'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger
-} from '@utopia/hover-card'
+} from '@utopia/radix-hover-card'
 
 const meta: Meta<typeof HoverCard> = {
   component: HoverCard
