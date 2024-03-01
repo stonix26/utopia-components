@@ -1,9 +1,9 @@
-import * as React from 'react'
+import { type TextareaHTMLAttributes, forwardRef } from 'react'
 import { cn } from '@utopia/classnames'
 
-export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
+export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
       <textarea

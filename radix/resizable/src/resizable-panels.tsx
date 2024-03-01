@@ -1,5 +1,6 @@
 'use client'
 
+import type { ComponentProps } from 'react'
 import { GripVertical } from 'lucide-react'
 import * as ResizablePrimitive from 'react-resizable-panels'
 import { cn } from '@utopia/classnames'
@@ -7,7 +8,7 @@ import { cn } from '@utopia/classnames'
 function ResizablePanelGroup({
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>): JSX.Element {
+}: ComponentProps<typeof ResizablePrimitive.PanelGroup>): JSX.Element {
   return (
     <ResizablePrimitive.PanelGroup
       className={cn(
@@ -25,7 +26,7 @@ function ResizableHandle({
   withHandle,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
+}: ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
   withHandle?: boolean
 }): JSX.Element {
   return (

@@ -1,6 +1,10 @@
 'use client'
 
-import * as React from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef
+} from 'react'
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import { cn } from '@utopia/classnames'
 
@@ -8,9 +12,9 @@ const Popover = PopoverPrimitive.Root
 
 const PopoverTrigger = PopoverPrimitive.Trigger
 
-const PopoverContent = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+const PopoverContent = forwardRef<
+  ElementRef<typeof PopoverPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <PopoverPrimitive.Content

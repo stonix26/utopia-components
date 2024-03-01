@@ -1,9 +1,10 @@
+import type { HTMLAttributes } from 'react'
 import { cn } from '@utopia/classnames'
 
 function Skeleton({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): JSX.Element {
+}: HTMLAttributes<HTMLDivElement>): JSX.Element {
   return (
     <div
       className={cn('animate-pulse rounded-md bg-muted', className)}

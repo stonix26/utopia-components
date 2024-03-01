@@ -1,12 +1,16 @@
 'use client'
 
-import * as React from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef
+} from 'react'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import { cn } from '@utopia/classnames'
 
-const Separator = React.forwardRef<
-  React.ElementRef<typeof SeparatorPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+const Separator = forwardRef<
+  ElementRef<typeof SeparatorPrimitive.Root>,
+  ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
 >(
   (
     { className, orientation = 'horizontal', decorative = true, ...props },

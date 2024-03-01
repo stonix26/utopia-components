@@ -1,6 +1,10 @@
 'use client'
 
-import * as React from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef
+} from 'react'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { Check, ChevronDown } from 'lucide-react'
 import { cn } from '@utopia/classnames'
@@ -11,9 +15,9 @@ const SelectGroup = SelectPrimitive.Group
 
 const SelectValue = SelectPrimitive.Value
 
-const SelectIcon = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Icon>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Icon>
+const SelectIcon = forwardRef<
+  ElementRef<typeof SelectPrimitive.Icon>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Icon>
 >(({ children, ...props }, ref) => (
   <SelectPrimitive.Icon asChild ref={ref} {...props}>
     {children ?? <ChevronDown className="h-4 w-4 opacity-50" />}
@@ -21,9 +25,9 @@ const SelectIcon = React.forwardRef<
 ))
 SelectIcon.displayName = SelectPrimitive.Icon.displayName
 
-const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+const SelectTrigger = forwardRef<
+  ElementRef<typeof SelectPrimitive.Trigger>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     className={cn(
@@ -38,9 +42,9 @@ const SelectTrigger = React.forwardRef<
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
-const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+const SelectContent = forwardRef<
+  ElementRef<typeof SelectPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
 >(({ className, children, position = 'popper', ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
@@ -68,9 +72,9 @@ const SelectContent = React.forwardRef<
 ))
 SelectContent.displayName = SelectPrimitive.Content.displayName
 
-const SelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+const SelectLabel = forwardRef<
+  ElementRef<typeof SelectPrimitive.Label>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className)}
@@ -80,9 +84,9 @@ const SelectLabel = React.forwardRef<
 ))
 SelectLabel.displayName = SelectPrimitive.Label.displayName
 
-const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+const SelectItem = forwardRef<
+  ElementRef<typeof SelectPrimitive.Item>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     className={cn(
@@ -103,9 +107,9 @@ const SelectItem = React.forwardRef<
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName
 
-const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+const SelectSeparator = forwardRef<
+  ElementRef<typeof SelectPrimitive.Separator>,
+  ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     className={cn('-mx-1 my-1 h-px bg-muted', className)}
