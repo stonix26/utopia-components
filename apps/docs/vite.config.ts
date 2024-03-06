@@ -28,12 +28,12 @@ function getDependencyNames(packageJsonPath: string): string[] {
 }
 
 // Get all `@utopia/*` packages
-const all_playbook = getDependencyNames('package.json').filter(str =>
+const all_packages = getDependencyNames('package.json').filter(str =>
   str.includes('@utopia/')
 )
 
 // Filter non-working packages
-const filtered_aliases = all_playbook
+const filtered_aliases = all_packages
   // .filter(item => item !== '@utopia/icon') 👈 Uncomment this to filter a package if it's not working
   .map(element => {
     return {
