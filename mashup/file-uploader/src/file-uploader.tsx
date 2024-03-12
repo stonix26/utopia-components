@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { type FileRejection, type Accept, useDropzone } from 'react-dropzone'
+import { Button } from '@utopia/radix-button'
 
 interface FileUploaderProps {
   onFilesUpload: (files: File[]) => Promise<void>
@@ -71,7 +72,10 @@ function FileUploader({
     return disabled || uploading
   }, [disabled, uploading])
 
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, open } = useDropzone({
+    // Disable click and keydown behavior
+    noClick: true,
+    noKeyboard: true,
     onDrop,
     accept,
     maxSize: computedMaxSize(),
@@ -149,7 +153,10 @@ function FileUploader({
         })}
       >
         <input {...getInputProps()} />
-        <p>Drag & drop files here, or click to select files</p>
+        <p>{`Drag 'n' drop some files here`}</p>
+        <Button onClick={open} variant="secondary">
+          Open File Dialog
+        </Button>
       </div>
       {previewFiles.length > 0 && (
         <div>
