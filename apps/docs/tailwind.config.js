@@ -8,6 +8,7 @@ module.exports = {
     './stories/**/*.{ts,tsx,mdx}',
     './examples/**/*.tsx',
     '../../common/**/src/**/*.{js,ts,jsx,tsx}',
+    '../../mashup/**/src/**/*.{js,ts,jsx,tsx}',
     '../../radix/**/src/**/*.{js,ts,jsx,tsx}',
     '../../react-aria/**/src/**/*.{js,ts,jsx,tsx}',
     '../../zag/**/src/**/*.{js,ts,jsx,tsx}'

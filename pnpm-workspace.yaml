@@ -1,6 +1,7 @@
 packages:
   - 'apps/*'
   - 'common/*'
+  - 'mashup/*'
   - 'radix/*'
   - 'react-aria/*'
   - 'zag/*'
