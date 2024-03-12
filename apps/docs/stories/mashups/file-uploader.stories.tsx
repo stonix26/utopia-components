@@ -1,3 +1,4 @@
+/* eslint-disable no-console -- TEMP */
 import type { Meta, StoryObj } from '@storybook/react'
 import FileUploader from '@utopia/file-uploader'
 
@@ -12,9 +13,15 @@ type Story = StoryObj<typeof FileUploader>
 export const Default: Story = {
   render: () => (
     <FileUploader
-      onFilesUpload={files => {
-        // eslint-disable-next-line no-console -- TEMP
+      onFilesUpload={async files => {
+        // Mocking async upload
+        await new Promise(resolve => {
+          setTimeout(resolve, 10000) // Simulate 10-seconds delay
+        })
         console.log('onFilesUpload callback:', files)
+
+        // Simulate potential error
+        throw new Error('Upload failed, yohow!') // Uncomment this line to test error handling
       }}
     />
   )

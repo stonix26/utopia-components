@@ -1,81 +1,124 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
+import { type FileRejection, type Accept, useDropzone } from 'react-dropzone'
 
 interface FileUploaderProps {
-  onFilesUpload: (files: File[]) => void
+  onFilesUpload: (files: File[]) => Promise<void>
   maxSize?: number | undefined
+  accept?: Accept | undefined
+  disabled?: boolean | undefined
+}
+
+// TODO - Enhance this
+const typeValidator = (
+  file: File,
+  maxSize: number
+): {
+  code: string
+  message: string
+} | null => {
+  if (file.type.startsWith('video/')) {
+    if (file.size > maxSize * 1024 * 1024) {
+      return {
+        code: 'utopia-size-too-large',
+        message: `Video file is larger than ${maxSize}MB`
+      }
+    }
+  } else if (file.type.startsWith('image/')) {
+    if (file.size > maxSize * 1024 * 1024) {
+      return {
+        code: 'utopia-size-too-large',
+        message: `Image file is larger than ${maxSize}MB`
+      }
+    }
+  }
+  return null
 }
 
 function FileUploader({
   onFilesUpload,
-  maxSize = 10
+  maxSize = 3,
+  accept = {
+    'image/*': [],
+    'application/pdf': ['.pdf']
+  },
+  disabled
 }: FileUploaderProps): JSX.Element {
-  const [errors, setErrors] = useState<string[]>([])
+  const [acceptedFiles, setAcceptedFiles] = useState<File[]>([])
+  const [rejectedFiles, setRejectedFiles] = useState<FileRejection[]>([])
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
   const [previewFiles, setPreviewFiles] = useState<
     { file: File; preview: string }[]
   >([])
 
-  const validateFile = useCallback(
-    (file: File) => {
-      const computedMaxSize = maxSize * 1024 * 1024 // default to 10mb
-      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']
+  const onDrop = useCallback((files: File[], rejectFiles: FileRejection[]) => {
+    setUploadError(null)
+    setAcceptedFiles(files)
+    setPreviewFiles(
+      files.map(file => ({
+        file,
+        preview: URL.createObjectURL(file)
+      }))
+    )
+    setRejectedFiles(rejectFiles)
+  }, [])
 
-      if (!allowedTypes.includes(file.type)) {
-        setErrors(prevErrors => [
-          ...prevErrors,
-          `Invalid file format: ${file.name}`
-        ])
-        return false
-      }
+  const computedMaxSize = useCallback(() => {
+    return maxSize * 1024 * 1024
+  }, [maxSize])
 
-      if (file.size > computedMaxSize) {
-        setErrors(prevErrors => [...prevErrors, `File too large: ${file.name}`])
-        return false
-      }
-
-      return true
-    },
-    [maxSize]
-  )
-
-  const onDrop = useCallback(
-    (acceptedFiles: File[]) => {
-      const filteredFiles = acceptedFiles.filter(validateFile)
-      if (filteredFiles.length > 0) {
-        setErrors([])
-        setPreviewFiles(
-          filteredFiles.map(file => ({
-            file,
-            preview: URL.createObjectURL(file)
-          }))
-        )
-        onFilesUpload(filteredFiles)
-      }
-    },
-    [onFilesUpload, validateFile]
-  )
+  const computedDisabled = useCallback(() => {
+    return disabled || uploading
+  }, [disabled, uploading])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: {
-      'image/*': ['.png']
-    },
-    maxSize: maxSize * 1024 * 1024 // default to 10mb
+    accept,
+    maxSize: computedMaxSize(),
+    validator: file => typeValidator(file, maxSize),
+    disabled: computedDisabled()
   })
 
   const errorMessage = useMemo(() => {
-    if (errors.length === 0) return null
+    if (rejectedFiles.length === 0 && !uploadError) return null
     return (
       <div style={{ color: 'red' }}>
-        {errors.map((error, index) => (
-          // eslint-disable-next-line react/no-array-index-key -- TEMP
-          <div key={index}>{error}</div>
+        {rejectedFiles.map(rejected => (
+          <div key={rejected.file.name}>
+            <p>File Name: {rejected.file.name}</p>
+            <ul>
+              {rejected.errors
+                .filter(f => f.code.startsWith('utopia-'))
+                .map((ferr, i) => (
+                  // eslint-disable-next-line react/no-array-index-key -- TEMP
+                  <li key={i}>{ferr.message}</li>
+                ))}
+            </ul>
+          </div>
         ))}
+        {uploadError ? uploadError : null}
       </div>
     )
-  }, [errors])
+  }, [rejectedFiles, uploadError])
+
+  const handleUpload = (): void => {
+    setUploading(true)
+    onFilesUpload(acceptedFiles)
+      .then(() => {
+        setUploading(false)
+        setAcceptedFiles([])
+        setPreviewFiles([])
+        setUploadError(null)
+      })
+      .catch((error: Error) => {
+        setUploadError(error.message || 'An error occured during upload.')
+        setUploading(false)
+      })
+  }
 
   const handleRemovePreview = (file: File): void => {
+    setUploadError(null)
+    setAcceptedFiles(prevFiles => prevFiles.filter(item => item !== file))
     setPreviewFiles(prevFiles => prevFiles.filter(item => item.file !== file))
   }
 
@@ -96,13 +139,14 @@ function FileUploader({
   return (
     <div>
       <div
-        {...getRootProps()}
-        style={{
-          border: '2px dashed #eeeeee',
-          padding: '20px',
-          textAlign: 'center',
-          marginBottom: '20px'
-        }}
+        {...getRootProps({
+          style: {
+            border: '2px dashed #eeeeee',
+            padding: '20px',
+            textAlign: 'center',
+            marginBottom: '20px'
+          }
+        })}
       >
         <input {...getInputProps()} />
         <p>Drag & drop files here, or click to select files</p>
@@ -134,6 +178,13 @@ function FileUploader({
           </div>
         </div>
       )}
+      <button
+        disabled={acceptedFiles.length === 0 || uploading}
+        onClick={handleUpload}
+        type="button"
+      >
+        {uploading ? 'Uploading...' : 'Upload'}
+      </button>
       {errorMessage}
     </div>
   )
