@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { type FileRejection, type Accept, useDropzone } from 'react-dropzone'
 import { Button } from '@utopia/radix-button'
+import { FileText, UploadCloud } from 'lucide-react'
 
 interface FileUploaderProps {
-  onFilesUpload: (files: File[]) => Promise<void>
+  onFilesSelected: (files: File[]) => void
   maxSize?: number | undefined
   accept?: Accept | undefined
   disabled?: boolean | undefined
@@ -36,41 +37,36 @@ const typeValidator = (
 }
 
 function FileUploader({
-  onFilesUpload,
-  maxSize = 3,
+  // onFilesUpload,
+  onFilesSelected,
+  maxSize = 10,
   accept = {
     'image/*': [],
-    'application/pdf': ['.pdf']
+    'application/pdf': ['.pdf', '.doc', '.docx', '.xlsx']
   },
   disabled
 }: FileUploaderProps): JSX.Element {
-  const [acceptedFiles, setAcceptedFiles] = useState<File[]>([])
-  const [rejectedFiles, setRejectedFiles] = useState<FileRejection[]>([])
-  const [uploading, setUploading] = useState(false)
-  const [uploadError, setUploadError] = useState<string | null>(null)
   const [previewFiles, setPreviewFiles] = useState<
     { file: File; preview: string }[]
   >([])
+  const [rejectedFiles, setRejectedFiles] = useState<FileRejection[]>([])
 
-  const onDrop = useCallback((files: File[], rejectFiles: FileRejection[]) => {
-    setUploadError(null)
-    setAcceptedFiles(files)
-    setPreviewFiles(
-      files.map(file => ({
-        file,
-        preview: URL.createObjectURL(file)
-      }))
-    )
-    setRejectedFiles(rejectFiles)
-  }, [])
+  const onDrop = useCallback(
+    (acceptedFiles: File[], rejectedFilesArg: FileRejection[]) => {
+      setPreviewFiles(
+        acceptedFiles.map(file => ({
+          file,
+          preview: URL.createObjectURL(file)
+        }))
+      )
+      setRejectedFiles(rejectedFilesArg)
+    },
+    []
+  )
 
   const computedMaxSize = useCallback(() => {
     return maxSize * 1024 * 1024
   }, [maxSize])
-
-  const computedDisabled = useCallback(() => {
-    return disabled || uploading
-  }, [disabled, uploading])
 
   const { getRootProps, getInputProps, open } = useDropzone({
     // Disable click and keydown behavior
@@ -80,51 +76,42 @@ function FileUploader({
     accept,
     maxSize: computedMaxSize(),
     validator: file => typeValidator(file, maxSize),
-    disabled: computedDisabled()
+    disabled
   })
 
   const errorMessage = useMemo(() => {
-    if (rejectedFiles.length === 0 && !uploadError) return null
+    if (rejectedFiles.length === 0) return null
     return (
-      <div style={{ color: 'red' }}>
+      <div className="text-xs">
         {rejectedFiles.map(rejected => (
           <div key={rejected.file.name}>
-            <p>File Name: {rejected.file.name}</p>
-            <ul>
+            <p>{rejected.file.name}</p>
+            <ul className="ml-6 list-disc">
               {rejected.errors
                 .filter(f => f.code.startsWith('utopia-'))
                 .map((ferr, i) => (
                   // eslint-disable-next-line react/no-array-index-key -- TEMP
-                  <li key={i}>{ferr.message}</li>
+                  <li className="text-destructive" key={i}>
+                    {ferr.message}
+                  </li>
                 ))}
             </ul>
           </div>
         ))}
-        {uploadError ? uploadError : null}
       </div>
     )
-  }, [rejectedFiles, uploadError])
-
-  const handleUpload = (): void => {
-    setUploading(true)
-    onFilesUpload(acceptedFiles)
-      .then(() => {
-        setUploading(false)
-        setAcceptedFiles([])
-        setPreviewFiles([])
-        setUploadError(null)
-      })
-      .catch((error: Error) => {
-        setUploadError(error.message || 'An error occured during upload.')
-        setUploading(false)
-      })
-  }
+  }, [rejectedFiles])
 
   const handleRemovePreview = (file: File): void => {
-    setUploadError(null)
-    setAcceptedFiles(prevFiles => prevFiles.filter(item => item !== file))
     setPreviewFiles(prevFiles => prevFiles.filter(item => item.file !== file))
   }
+
+  // Call the onFilesSelected callback with the selected files when files are dropped or selected
+  useEffect(() => {
+    const files = previewFiles.map(({ file }) => file)
+    onFilesSelected(files)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- Removed `onFilesSelected` as deps causing rerenders
+  }, [previewFiles])
 
   // Cleanup function for object URLS
   const cleanupObjectURLs = useCallback(() => {
@@ -141,57 +128,53 @@ function FileUploader({
   }, [cleanupObjectURLs])
 
   return (
-    <div>
+    <div className="space-y-2">
       <div
         {...getRootProps({
-          style: {
-            border: '2px dashed #eeeeee',
-            padding: '20px',
-            textAlign: 'center',
-            marginBottom: '20px'
-          }
+          className:
+            'flex flex-col items-center justify-center gap-y-2 rounded border-2 border-dashed border-border p-4'
         })}
       >
         <input {...getInputProps()} />
-        <p>{`Drag 'n' drop some files here`}</p>
-        <Button onClick={open} variant="secondary">
-          Open File Dialog
+        <UploadCloud className="h-12 w-12 text-secondary" />
+        <p className="text-sm">{`Drag 'n' drop some files here`}</p>
+        <Button onClick={open} size="xs" variant="secondary">
+          Choose File
         </Button>
       </div>
       {previewFiles.length > 0 && (
         <div>
           <p>Selected Files:</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <div className="flex gap-x-2">
             {previewFiles.map(({ file, preview }) => (
-              <div
-                key={file.name}
-                style={{ marginRight: '10px', marginBottom: '10px' }}
-              >
-                <img
-                  alt={file.name}
-                  src={preview}
-                  style={{ maxWidth: '100px', maxHeight: '100px' }}
-                />
+              <div className="relative" key={file.name}>
+                {file.type.startsWith('image/') ? (
+                  <img
+                    alt={file.name}
+                    className="object-fit h-32 w-32"
+                    src={preview}
+                  />
+                ) : (
+                  <div className="flex h-32 w-32 flex-col items-center items-center justify-center justify-center gap-y-2 rounded border border-border p-4">
+                    <FileText className="h-16 w-16 text-secondary" />
+                    <p className="line-clamp-1 text-xs">{file.name}</p>
+                  </div>
+                )}
+
                 <button
+                  className="absolute right-0 top-0 rounded-md bg-destructive px-1 text-xs text-white"
                   onClick={() => {
                     handleRemovePreview(file)
                   }}
                   type="button"
                 >
-                  Remove
+                  x
                 </button>
               </div>
             ))}
           </div>
         </div>
       )}
-      <button
-        disabled={acceptedFiles.length === 0 || uploading}
-        onClick={handleUpload}
-        type="button"
-      >
-        {uploading ? 'Uploading...' : 'Upload'}
-      </button>
       {errorMessage}
     </div>
   )
