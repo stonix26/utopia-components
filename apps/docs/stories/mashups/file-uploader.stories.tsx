@@ -27,7 +27,7 @@ export const Default = (
 
   const selectedFiles = states.acceptedFiles
 
-  const handleUpload = async () => {
+  const handleUpload = async (): Promise<void> => {
     // Set loading states here
     const formData = new FormData()
     for (const customFile of selectedFiles) {
@@ -41,6 +41,7 @@ export const Default = (
         }
       })
       console.log('Files uploaded successfully!')
+      // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents -- TEMP
     } catch (error: Error | unknown) {
       console.error('Upload failed:', error)
     }
