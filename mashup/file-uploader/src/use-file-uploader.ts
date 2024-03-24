@@ -10,18 +10,21 @@ export function bytesToMB(size: number): number {
   return size * 1024 * 1024
 }
 
-interface CustomFile {
+export interface CustomFile {
   id: string
   file: File
   preview: string
 }
 
-interface CustomDropzoneState extends Omit<DropzoneState, 'acceptedFiles'> {
+export interface CustomDropzoneState
+  extends Omit<DropzoneState, 'acceptedFiles'> {
   acceptedFiles: CustomFile[]
+  downloadFile?: (file: File) => void
   removeFile?: (id: CustomFile['id']) => void
+  clearAllFiles?: () => void
 }
 
-type FileUploaderType = (
+export type FileUploaderType = (
   options?: DropzoneOptions | undefined
 ) => CustomDropzoneState
 
@@ -34,18 +37,6 @@ export const useFileUploader: FileUploaderType = options => {
     }
     return bytesToMB(10)
   }, [options?.maxSize])
-
-  const removeFile = (id: CustomFile['id']): void => {
-    setFiles(prevFiles => {
-      const preview = prevFiles.find(item => item.id === id)?.preview
-      const filter = prevFiles.filter(item => item.id !== id)
-      if (preview) {
-        URL.revokeObjectURL(preview)
-        return filter
-      }
-      return filter
-    })
-  }
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     acceptedFiles.forEach(file => {
@@ -100,19 +91,54 @@ export const useFileUploader: FileUploaderType = options => {
     maxSize: calculateSize
   })
 
+  const downloadFile = (file: File): void => {
+    const url = URL.createObjectURL(file)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = file.name
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  const removeFile = (id: CustomFile['id']): void => {
+    setFiles(prevFiles => {
+      const preview = prevFiles.find(item => item.id === id)?.preview
+      const filter = prevFiles.filter(item => item.id !== id)
+      if (preview) {
+        URL.revokeObjectURL(preview)
+        return filter
+      }
+      return filter
+    })
+  }
+
+  // Cleanup function for object URLs
+  const cleanupObjectURLs = useCallback(() => {
+    files.forEach(({ preview }) => {
+      URL.revokeObjectURL(preview)
+    })
+  }, [files])
+
+  const clearAllFiles = (): void => {
+    setFiles([])
+    cleanupObjectURLs()
+  }
+
   // Cleanup object URLs when component unmounts
   useEffect(() => {
     return () => {
-      files.forEach(({ preview }) => {
-        URL.revokeObjectURL(preview)
-      })
+      cleanupObjectURLs()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- Only run this on unmount
   }, [])
 
   return {
     acceptedFiles: files,
+    downloadFile,
     removeFile,
+    clearAllFiles,
     fileRejections,
     getInputProps,
     getRootProps,
