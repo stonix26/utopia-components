@@ -1,10 +1,13 @@
-import { useState } from 'react'
-import { FileText, UploadCloud } from 'lucide-react'
+import { type HTMLAttributes, useState } from 'react'
+import { Crop, Download, Trash, UploadCloud, View } from 'lucide-react'
 import { Button } from '@utopia/radix-button'
+import { ScrollArea, ScrollBar } from '@utopia/radix-scroll-area'
+import { cn } from '@utopia/classnames'
 import Dialog from './dialog'
 import type { CustomFile, useFileUploader } from './use-file-uploader'
+import FilePreview from './file-preview'
 
-export interface FileUploaderProps {
+export interface FileUploaderProps extends HTMLAttributes<HTMLDivElement> {
   configParams: ReturnType<typeof useFileUploader>
 }
 
@@ -17,12 +20,14 @@ function FileUploader({
     downloadFile,
     removeFile,
     clearAllFiles
-  }
+  },
+  className,
+  ...props
 }: FileUploaderProps): JSX.Element {
   const [dialogImage, setDialogImage] = useState<CustomFile | null>(null)
   return (
     <>
-      <div className="space-y-2">
+      <div className={cn('w-full space-y-2', className)} {...props}>
         <div
           {...getRootProps({
             className:
@@ -38,65 +43,78 @@ function FileUploader({
         </div>
         {acceptedFiles.length > 0 && (
           <div>
-            <p>Selected Files:</p>
-            <button
-              onClick={() => {
-                if (clearAllFiles) {
-                  clearAllFiles()
-                }
-              }}
-              type="button"
-            >
-              Clear all
-            </button>
-            <div className="flex gap-x-2">
-              {acceptedFiles.map(({ file, id, preview }) => (
-                <div className="relative flex flex-col" key={id}>
-                  {file.type.startsWith('image/') ? (
-                    <button
-                      onClick={() => {
-                        setDialogImage({ file, id, preview })
-                      }}
-                      type="button"
-                    >
-                      <img
-                        alt={file.name}
-                        className="h-32 w-32 object-cover"
-                        src={preview}
-                      />
-                    </button>
-                  ) : (
-                    <div className="flex h-32 w-32 flex-col items-center items-center justify-center justify-center gap-y-2 rounded border border-border p-4">
-                      <FileText className="h-16 w-16 text-secondary" />
-                      <p className="line-clamp-1 text-xs">{file.name}</p>
-                    </div>
-                  )}
-
-                  <button
-                    className="absolute right-0 top-0 rounded-md bg-destructive px-1 text-xs text-white"
-                    onClick={() => {
-                      if (removeFile) {
-                        removeFile(id)
-                      }
-                    }}
-                    type="button"
-                  >
-                    x
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      if (downloadFile) {
-                        downloadFile(file)
-                      }
-                    }}
-                    type="button"
-                  >
-                    Download
-                  </button>
-                </div>
-              ))}
+            <div className="flex items-center justify-between">
+              <p>Selected Files:</p>
+              <button
+                onClick={() => {
+                  if (clearAllFiles) {
+                    clearAllFiles()
+                  }
+                }}
+                type="button"
+              >
+                Clear all
+              </button>
             </div>
+            <ScrollArea className="h-36 w-full whitespace-nowrap pb-2">
+              <div className="flex w-max items-center gap-x-2">
+                {acceptedFiles.map(item => {
+                  const defaultOptions = [
+                    {
+                      id: 'remove',
+                      name: 'Remove',
+                      icon: Trash,
+                      onClick: () => {
+                        if (removeFile) {
+                          removeFile(item.id)
+                        }
+                      }
+                    },
+                    {
+                      id: 'crop',
+                      name: 'Crop',
+                      icon: Crop
+                    },
+                    {
+                      id: 'preview',
+                      name: 'Preview',
+                      icon: View,
+                      onClick: () => {
+                        setDialogImage(item)
+                      }
+                    },
+                    {
+                      id: 'download',
+                      name: 'Download',
+                      icon: Download,
+                      onClick: () => {
+                        if (downloadFile) {
+                          downloadFile(item.file)
+                        }
+                      }
+                    }
+                  ]
+                  const noCropOptions = defaultOptions.filter(
+                    o => o.id !== 'crop'
+                  )
+                  const isImg = item.file.type.startsWith('image/')
+                  return (
+                    <FilePreview
+                      file={item.file}
+                      key={item.id}
+                      onPreviewClick={() => {
+                        if (isImg) {
+                          setDialogImage(item)
+                        }
+                      }}
+                      options={isImg ? defaultOptions : noCropOptions}
+                      preview={item.preview}
+                    />
+                  )
+                })}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
           </div>
         )}
       </div>

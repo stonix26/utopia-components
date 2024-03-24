@@ -5,6 +5,7 @@ import FileUploader, {
   useFileUploader
 } from '@utopia/file-uploader'
 import { Button } from '@utopia/radix-button'
+import { UploadCloud } from 'lucide-react'
 import axios from 'axios'
 
 const meta: Meta<typeof FileUploader> = {
@@ -20,9 +21,10 @@ export const Default = (
   args: Story['args']
 ): Partial<FileUploaderProps> | undefined => {
   const states = useFileUploader({
-    accept: {
-      'image/*': []
-    }
+    // accept: {
+    //   'image/*': []
+    // },
+    maxSize: 200
   })
 
   const selectedFiles = states.acceptedFiles
@@ -50,9 +52,10 @@ export const Default = (
   console.log('states', states)
 
   return (
-    <div>
-      <FileUploader {...args} configParams={states} />
+    <div className="flex w-full flex-col items-center">
+      <FileUploader {...args} className="mb-4" configParams={states} />
       <Button disabled={selectedFiles.length === 0} onClick={handleUpload}>
+        <UploadCloud className="mr-2 h-4 w-4" />
         Upload files
       </Button>
     </div>

@@ -19,6 +19,8 @@
     "@utopia/classnames": "workspace:*",
     "@utopia/radix-button": "workspace:^",
     "@utopia/radix-dialog": "workspace:^",
+    "@utopia/radix-dropdown-menu": "workspace:^",
+    "@utopia/radix-scroll-area": "workspace:^",
     "lucide-react": "^0.288.0",
     "react-dropzone": "^14.2.3",
     "react-easy-crop": "^5.0.5"

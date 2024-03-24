@@ -424,6 +424,12 @@ importers:
       '@utopia/radix-dialog':
         specifier: workspace:^
         version: link:../../radix/dialog
+      '@utopia/radix-dropdown-menu':
+        specifier: workspace:^
+        version: link:../../radix/dropdown-menu
+      '@utopia/radix-scroll-area':
+        specifier: workspace:^
+        version: link:../../radix/scroll-area
       lucide-react:
         specifier: ^0.288.0
         version: 0.288.0(react@18.2.0)
