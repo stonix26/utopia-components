@@ -5,6 +5,8 @@ import {
   type DropzoneState,
   useDropzone
 } from 'react-dropzone'
+import { type Area, type Point } from 'react-easy-crop'
+import { getCroppedImg } from './get-cropped-img'
 
 export function bytesToMB(size: number): number {
   return size * 1024 * 1024
@@ -19,8 +21,24 @@ export interface CustomFile {
 export interface CustomDropzoneState
   extends Omit<DropzoneState, 'acceptedFiles'> {
   acceptedFiles: CustomFile[]
+
+  // Dialog states
   dialogImage: CustomFile | null
   setDialogImage: React.Dispatch<React.SetStateAction<CustomFile | null>>
+
+  // Cropper states
+  isCropping: boolean
+  setIsCropping: React.Dispatch<React.SetStateAction<boolean>>
+  crop: Point
+  setCrop: React.Dispatch<React.SetStateAction<Point>>
+  onCropComplete: (paramCroppedArea: Area, paramCroppedAreaPixels: Area) => void
+  zoom: number
+  setZoom: React.Dispatch<React.SetStateAction<number>>
+  rotation: number
+  setRotation: React.Dispatch<React.SetStateAction<number>>
+  mergeCroppedImage: () => Promise<void>
+
+  // Option states
   downloadFile?: (file: File) => void
   removeFile?: (id: CustomFile['id']) => void
   clearAllFiles?: () => void
@@ -33,6 +51,46 @@ export type FileUploaderType = (
 export const useFileUploader: FileUploaderType = options => {
   const [files, setFiles] = useState<CustomFile[]>([])
   const [dialogImage, setDialogImage] = useState<CustomFile | null>(null)
+  const [isCropping, setIsCropping] = useState(false)
+
+  // Cropper states
+  const [crop, setCrop] = useState<Point>({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState(0)
+  const [zoom, setZoom] = useState(1)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null)
+
+  const onCropComplete = (
+    paramCroppedArea: Area,
+    paramCroppedAreaPixels: Area
+  ): void => {
+    setCroppedAreaPixels(paramCroppedAreaPixels)
+  }
+
+  const mergeCroppedImage = async (): Promise<void> => {
+    try {
+      if (croppedAreaPixels) {
+        const croppedImage: string | null = (await getCroppedImg(
+          dialogImage?.preview || '',
+          croppedAreaPixels,
+          rotation
+        )) as string | null
+
+        console.log('donee', { croppedImage })
+        // Replace the original file with the cropped image
+        setFiles(prevFiles =>
+          prevFiles.map(item =>
+            item.file === dialogImage?.file
+              ? { ...item, preview: croppedImage || '' }
+              : item
+          )
+        )
+        setDialogImage(null)
+        setIsCropping(false)
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   const calculateSize = useMemo(() => {
     if (options?.maxSize) {
@@ -138,12 +196,25 @@ export const useFileUploader: FileUploaderType = options => {
   }, [])
 
   return {
+    // Custom
     acceptedFiles: files,
     dialogImage,
     setDialogImage,
+    isCropping,
+    setIsCropping,
+    crop,
+    setCrop,
+    onCropComplete,
+    zoom,
+    setZoom,
+    rotation,
+    setRotation,
+    mergeCroppedImage,
     downloadFile,
     removeFile,
     clearAllFiles,
+
+    // Dropzone
     fileRejections,
     getInputProps,
     getRootProps,

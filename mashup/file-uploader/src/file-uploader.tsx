@@ -15,10 +15,26 @@ function FileUploader({
   configParams: {
     getInputProps,
     getRootProps,
-    acceptedFiles,
     open,
+    acceptedFiles,
+
+    // Dialog props
     dialogImage,
     setDialogImage,
+
+    // Cropper props
+    isCropping,
+    setIsCropping,
+    crop,
+    setCrop,
+    rotation,
+    setRotation,
+    zoom,
+    setZoom,
+    onCropComplete,
+    mergeCroppedImage,
+
+    // Option props
     downloadFile,
     removeFile,
     clearAllFiles
@@ -74,7 +90,11 @@ function FileUploader({
                     {
                       id: 'crop',
                       name: 'Crop',
-                      icon: Crop
+                      icon: Crop,
+                      onClick: () => {
+                        setDialogImage(item)
+                        setIsCropping(true)
+                      }
                     },
                     {
                       id: 'preview',
@@ -121,12 +141,22 @@ function FileUploader({
       </div>
 
       <Dialog
-        fileImage={dialogImage}
+        crop={crop}
+        dialogImage={dialogImage}
+        isCropping={isCropping}
+        mergeCroppedImage={mergeCroppedImage}
+        onCropComplete={onCropComplete}
         onOpenChange={prev => {
           setDialogImage(null)
+          setIsCropping(false)
           !prev
         }}
         open={dialogImage !== null}
+        rotation={rotation}
+        setCrop={setCrop}
+        setRotation={setRotation}
+        setZoom={setZoom}
+        zoom={zoom}
       />
     </>
   )
