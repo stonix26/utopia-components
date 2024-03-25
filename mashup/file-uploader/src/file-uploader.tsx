@@ -1,10 +1,10 @@
-import { type HTMLAttributes, useState } from 'react'
+import { type HTMLAttributes } from 'react'
 import { Crop, Download, Trash, UploadCloud, View } from 'lucide-react'
 import { Button } from '@utopia/radix-button'
 import { ScrollArea, ScrollBar } from '@utopia/radix-scroll-area'
 import { cn } from '@utopia/classnames'
 import Dialog from './dialog'
-import type { CustomFile, useFileUploader } from './use-file-uploader'
+import type { useFileUploader } from './use-file-uploader'
 import FilePreview from './file-preview'
 
 export interface FileUploaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -17,6 +17,8 @@ function FileUploader({
     getRootProps,
     acceptedFiles,
     open,
+    dialogImage,
+    setDialogImage,
     downloadFile,
     removeFile,
     clearAllFiles
@@ -24,7 +26,6 @@ function FileUploader({
   className,
   ...props
 }: FileUploaderProps): JSX.Element {
-  const [dialogImage, setDialogImage] = useState<CustomFile | null>(null)
   return (
     <>
       <div className={cn('w-full space-y-2', className)} {...props}>

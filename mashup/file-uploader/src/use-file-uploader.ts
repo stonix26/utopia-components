@@ -19,6 +19,8 @@ export interface CustomFile {
 export interface CustomDropzoneState
   extends Omit<DropzoneState, 'acceptedFiles'> {
   acceptedFiles: CustomFile[]
+  dialogImage: CustomFile | null
+  setDialogImage: React.Dispatch<React.SetStateAction<CustomFile | null>>
   downloadFile?: (file: File) => void
   removeFile?: (id: CustomFile['id']) => void
   clearAllFiles?: () => void
@@ -30,6 +32,7 @@ export type FileUploaderType = (
 
 export const useFileUploader: FileUploaderType = options => {
   const [files, setFiles] = useState<CustomFile[]>([])
+  const [dialogImage, setDialogImage] = useState<CustomFile | null>(null)
 
   const calculateSize = useMemo(() => {
     if (options?.maxSize) {
@@ -136,6 +139,8 @@ export const useFileUploader: FileUploaderType = options => {
 
   return {
     acceptedFiles: files,
+    dialogImage,
+    setDialogImage,
     downloadFile,
     removeFile,
     clearAllFiles,
