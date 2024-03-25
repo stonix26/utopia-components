@@ -26,7 +26,7 @@ function Dialog({ onOpenChange, open, fileImage }: DialogProps): JSX.Element {
             File name: {fileImage?.file.name}
           </DialogDescription>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center justify-center">
           {fileImage ? <img alt="Hello" src={fileImage.preview} /> : null}
         </div>
         <DialogFooter className="sm:justify-end">

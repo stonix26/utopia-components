@@ -36,25 +36,29 @@ function FilePreview({
   ...props
 }: FilePreviewProps): JSX.Element {
   const box = file.type.startsWith('image/') ? (
-    <button onClick={onPreviewClick} type="button">
+    <button
+      className="h-32 w-32 overflow-hidden rounded border border-border"
+      onClick={onPreviewClick}
+      type="button"
+    >
       <img
         alt={file.name}
-        className="h-32 w-32 cursor-pointer object-cover"
+        className="h-full w-full cursor-pointer object-cover"
         src={preview}
       />
     </button>
   ) : file.type.startsWith('video/') ? (
-    <div className="flex h-32 w-32 items-center justify-center">
-      <Clapperboard className="text-primary-50 h-24 w-24" />
+    <div className="flex h-32 w-32 items-center justify-center rounded border border-border transition-colors group-hover:bg-foreground/50">
+      <Clapperboard className="text-primary-50 h-10 w-10 text-border" />
     </div>
   ) : (
-    <div className="flex h-32 w-32 items-center justify-center">
-      <File className="text-primary-50 h-24 w-24" />
+    <div className="flex h-32 w-32 items-center justify-center rounded border border-border transition-colors group-hover:bg-foreground/50">
+      <File className="text-primary-50 h-10 w-10 text-border" />
     </div>
   )
 
   return (
-    <div className={cn('relative h-32 w-32', className)} {...props}>
+    <div className={cn('group relative h-32 w-32', className)} {...props}>
       {box}
 
       <DropdownMenu>
