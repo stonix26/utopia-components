@@ -58,7 +58,9 @@ export const Default = (
     try {
       // Mock upload time for testing purposes
       setIsUploading(true)
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      await new Promise(resolve => {
+        setTimeout(resolve, 2000)
+      })
 
       console.log('Uploading files:', files)
       await axios.post(MOCK_SERVER, formData, {
@@ -83,7 +85,10 @@ export const Default = (
   return (
     <div className="flex w-full flex-col items-center">
       <FileUploader {...args} className="mb-4" configParams={states} />
-      <Button disabled={isUploading} onClick={handleUpload}>
+      <Button
+        disabled={isUploading || files.length === 0}
+        onClick={handleUpload}
+      >
         <UploadCloud className="mr-2 h-4 w-4" />
         Upload files
       </Button>
