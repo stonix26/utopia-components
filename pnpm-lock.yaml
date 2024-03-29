@@ -427,6 +427,9 @@ importers:
       '@utopia/radix-dropdown-menu':
         specifier: workspace:^
         version: link:../../radix/dropdown-menu
+      '@utopia/radix-label':
+        specifier: workspace:^
+        version: link:../../radix/label
       '@utopia/radix-scroll-area':
         specifier: workspace:^
         version: link:../../radix/scroll-area

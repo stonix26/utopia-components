@@ -20,6 +20,7 @@
     "@utopia/radix-button": "workspace:^",
     "@utopia/radix-dialog": "workspace:^",
     "@utopia/radix-dropdown-menu": "workspace:^",
+    "@utopia/radix-label": "workspace:^",
     "@utopia/radix-scroll-area": "workspace:^",
     "@utopia/radix-slider": "workspace:^",
     "get-orientation": "^1.1.2",

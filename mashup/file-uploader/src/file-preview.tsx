@@ -1,31 +1,13 @@
-/* eslint-disable no-nested-ternary -- Ok */
-import type { MouseEventHandler, HTMLAttributes } from 'react'
+/* eslint-disable no-nested-ternary -- its ok */
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem
+  DropdownMenuItem,
+  DropdownMenuTrigger
 } from '@utopia/radix-dropdown-menu'
-import {
-  CircleEllipsis,
-  Clapperboard,
-  File,
-  type LucideIcon
-} from 'lucide-react'
 import { cn } from '@utopia/classnames'
-import type { CustomFile } from './use-file-uploader'
-
-interface FilePreviewProps
-  extends HTMLAttributes<HTMLDivElement>,
-    Omit<CustomFile, 'id'> {
-  onPreviewClick?: MouseEventHandler<HTMLButtonElement> | undefined
-  options: {
-    id: string | number
-    name: string
-    icon: LucideIcon
-    onClick?: MouseEventHandler<HTMLDivElement> | undefined
-  }[]
-}
+import { File, Film, CircleEllipsis } from 'lucide-react'
+import type { FilePreviewProps } from './types'
 
 function FilePreview({
   file,
@@ -33,41 +15,68 @@ function FilePreview({
   onPreviewClick,
   options,
   className,
+  disabled,
   ...props
 }: FilePreviewProps): JSX.Element {
+  const fileName = file.name ? (
+    <p className="truncate text-center text-xs">{file.name}</p>
+  ) : null
+
   const box = file.type.startsWith('image/') ? (
-    <button
-      className="h-32 w-32 overflow-hidden rounded border border-border"
-      onClick={onPreviewClick}
-      type="button"
-    >
-      <img
-        alt={file.name}
-        className="h-full w-full cursor-pointer object-cover"
-        src={preview}
-      />
-    </button>
+    <div className="flex flex-col justify-center gap-y-1.5">
+      <button
+        className="h-32 w-32 overflow-hidden rounded border"
+        disabled={disabled}
+        onClick={onPreviewClick}
+        type="button"
+      >
+        <img
+          alt={file.name}
+          className="h-full w-full cursor-pointer object-cover"
+          src={preview}
+        />
+      </button>
+      {fileName}
+    </div>
   ) : file.type.startsWith('video/') ? (
-    <div className="flex h-32 w-32 items-center justify-center rounded border border-border transition-colors group-hover:bg-foreground/50">
-      <Clapperboard className="text-primary-50 h-10 w-10 text-border" />
+    <div className="flex flex-col justify-center gap-y-1.5 overflow-hidden">
+      <button
+        className="flex h-32 w-32 items-center justify-center rounded border border-border opacity-50 transition-colors group-hover:bg-secondary"
+        onClick={() => {
+          window.open(preview, '_blank')
+        }}
+        type="button"
+      >
+        <Film className="h-10 w-10 text-secondary-foreground" />
+      </button>
+      {fileName}
     </div>
   ) : (
-    <div className="flex h-32 w-32 items-center justify-center rounded border border-border transition-colors group-hover:bg-foreground/50">
-      <File className="text-primary-50 h-10 w-10 text-border" />
+    <div className="flex flex-col justify-center gap-y-1.5 overflow-hidden">
+      <button
+        className="flex h-32 w-32 items-center justify-center rounded border border-border opacity-50 transition-colors group-hover:bg-secondary"
+        onClick={() => {
+          window.open(preview, '_blank')
+        }}
+        type="button"
+      >
+        <File className="h-10 w-10 text-secondary-foreground" />
+      </button>
+      {fileName}
     </div>
   )
 
   return (
-    <div className={cn('group relative h-32 w-32', className)} {...props}>
+    <div className={cn('group relative h-36 w-32', className)} {...props}>
       {box}
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
+        <DropdownMenuTrigger asChild disabled={disabled}>
           <button
-            className="absolute right-0 top-0 p-1.5 opacity-50"
+            className="absolute right-0 top-0 rounded bg-white p-1.5 opacity-50"
             type="button"
           >
-            <CircleEllipsis className="h-4 w-4 text-white" />
+            <CircleEllipsis className="h-4 w-4 text-primary" />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">

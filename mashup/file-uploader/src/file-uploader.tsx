@@ -1,22 +1,25 @@
-import { type HTMLAttributes } from 'react'
-import { Crop, Download, Trash, UploadCloud, View } from 'lucide-react'
+import {
+  Crop,
+  Download,
+  ExternalLink,
+  Image,
+  Trash,
+  UploadCloud
+} from 'lucide-react'
 import { Button } from '@utopia/radix-button'
 import { ScrollArea, ScrollBar } from '@utopia/radix-scroll-area'
 import { cn } from '@utopia/classnames'
 import Dialog from './dialog'
-import type { useFileUploader } from './use-file-uploader'
 import FilePreview from './file-preview'
-
-export interface FileUploaderProps extends HTMLAttributes<HTMLDivElement> {
-  configParams: ReturnType<typeof useFileUploader>
-}
+import type { FileUploaderProps } from './types'
 
 function FileUploader({
   configParams: {
     getInputProps,
     getRootProps,
     open,
-    acceptedFiles,
+    withBlobFiles,
+    fileRejections,
 
     // Dialog props
     dialogImage,
@@ -37,32 +40,49 @@ function FileUploader({
     // Option props
     downloadFile,
     removeFile,
-    clearAllFiles
+    clearAllFiles,
+
+    // Other props
+    disabled,
+    acceptedFileTypes
   },
   className,
   ...props
 }: FileUploaderProps): JSX.Element {
   return (
     <>
-      <div className={cn('w-full space-y-2', className)} {...props}>
+      <div className={cn('flex w-full flex-col gap-y-2', className)} {...props}>
         <div
           {...getRootProps({
             className:
-              'flex flex-col items-center justify-center gap-y-2 rounded border-2 border-dashed border-border p-4'
+              'flex h-48 flex-col items-center justify-center rounded border-2 border-dashed border-border bg-background'
           })}
         >
           <input {...getInputProps()} />
-          <UploadCloud className="h-12 w-12 text-secondary" />
-          <p className="text-sm">{`Drag 'n' drop some files here`}</p>
-          <Button onClick={open} size="xs" variant="secondary">
+          <UploadCloud className="h-12 w-12 text-input" />
+          <div className="text-center">
+            <p className="font-semibold text-primary">{`Drag 'n' drop some files here`}</p>
+            <p className="text-xs text-secondary-foreground">
+              File Supported: {acceptedFileTypes}
+            </p>
+          </div>
+          <Button
+            className="my-4"
+            disabled={disabled}
+            onClick={open}
+            size="xs"
+            type="button"
+            variant="secondary"
+          >
             Choose File
           </Button>
         </div>
-        {acceptedFiles.length > 0 && (
+        {withBlobFiles.length > 0 && (
           <div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between text-sm">
               <p>Selected Files:</p>
               <button
+                disabled={disabled}
                 onClick={() => {
                   if (clearAllFiles) {
                     clearAllFiles()
@@ -73,9 +93,9 @@ function FileUploader({
                 Clear all
               </button>
             </div>
-            <ScrollArea className="h-36 w-full whitespace-nowrap pb-2">
+            <ScrollArea className="h-40 w-full whitespace-nowrap pb-2">
               <div className="flex w-max items-center gap-x-2">
-                {acceptedFiles.map(item => {
+                {withBlobFiles.map(item => {
                   const defaultOptions = [
                     {
                       id: 'remove',
@@ -99,7 +119,7 @@ function FileUploader({
                     {
                       id: 'preview',
                       name: 'Preview',
-                      icon: View,
+                      icon: Image,
                       onClick: () => {
                         setDialogImage(item)
                       }
@@ -113,14 +133,25 @@ function FileUploader({
                           downloadFile(item.file)
                         }
                       }
+                    },
+                    {
+                      id: 'newTab',
+                      name: 'Open in new tab',
+                      icon: ExternalLink,
+                      onClick: () => {
+                        window.open(item.preview, '_blank')
+                      }
                     }
                   ]
-                  const noCropOptions = defaultOptions.filter(
-                    o => o.id !== 'crop'
+
+                  const noPreviewAndCropOptions = defaultOptions.filter(
+                    o => o.id !== 'preview' && o.id !== 'crop'
                   )
+
                   const isImg = item.file.type.startsWith('image/')
                   return (
                     <FilePreview
+                      disabled={disabled}
                       file={item.file}
                       key={item.id}
                       onPreviewClick={() => {
@@ -128,7 +159,7 @@ function FileUploader({
                           setDialogImage(item)
                         }
                       }}
-                      options={isImg ? defaultOptions : noCropOptions}
+                      options={isImg ? defaultOptions : noPreviewAndCropOptions}
                       preview={item.preview}
                     />
                   )
@@ -138,6 +169,18 @@ function FileUploader({
             </ScrollArea>
           </div>
         )}
+        <ul className="list-outside list-disc px-2 text-xs text-secondary">
+          {fileRejections.map(({ file, errors }) => (
+            <li key={file.name}>
+              {file.name} - {file.size} bytes
+              <ul className="text-danger ml-2 list-outside list-disc text-xs">
+                {errors.map(e => (
+                  <li key={e.code}>{e.message}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <Dialog

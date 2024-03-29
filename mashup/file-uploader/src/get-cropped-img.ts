@@ -7,7 +7,7 @@ export const createImage = (url: string): Promise<HTMLImageElement> =>
       resolve(image)
     })
     image.addEventListener('error', error => {
-      // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- TEMP
+      // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- TODO
       reject(error)
     })
     image.src = url
@@ -133,12 +133,9 @@ export async function getRotatedImage(
   ctx?.drawImage(image, -image.width / 2, -image.height / 2)
 
   return new Promise((resolve, reject) => {
-    // canvas.toBlob(file => {
-    //   resolve(URL.createObjectURL(file))
-    // }, 'image/png')
     canvas.toBlob(file => {
       if (file) {
-        resolve(URL.createObjectURL(file)) // Resolve with the created object URL
+        resolve(URL.createObjectURL(file))
       } else {
         reject(new Error('Failed to create blob from canvas.'))
       }

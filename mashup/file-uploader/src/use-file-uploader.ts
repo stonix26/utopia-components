@@ -1,56 +1,15 @@
 /* eslint-disable no-console -- TEMP */
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import {
-  type DropzoneOptions,
-  type DropzoneState,
-  useDropzone
-} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 import { type Area, type Point } from 'react-easy-crop'
 import { getCroppedImg } from './get-cropped-img'
+import type { CustomFile, FileUploaderHook, FileWithPreview } from './types'
+import { bytesToMB, convertBlobUrlToOriginalFileType } from './helpers'
 
-export function bytesToMB(size: number): number {
-  return size * 1024 * 1024
-}
-
-export interface CustomFile {
-  id: string
-  file: File
-  preview: string
-}
-
-export interface CustomDropzoneState
-  extends Omit<DropzoneState, 'acceptedFiles'> {
-  acceptedFiles: CustomFile[]
-
-  // Dialog states
-  dialogImage: CustomFile | null
-  setDialogImage: React.Dispatch<React.SetStateAction<CustomFile | null>>
-
-  // Cropper states
-  isCropping: boolean
-  setIsCropping: React.Dispatch<React.SetStateAction<boolean>>
-  crop: Point
-  setCrop: React.Dispatch<React.SetStateAction<Point>>
-  onCropComplete: (paramCroppedArea: Area, paramCroppedAreaPixels: Area) => void
-  zoom: number
-  setZoom: React.Dispatch<React.SetStateAction<number>>
-  rotation: number
-  setRotation: React.Dispatch<React.SetStateAction<number>>
-  mergeCroppedImage: () => Promise<void>
-
-  // Option states
-  downloadFile?: (file: File) => void
-  removeFile?: (id: CustomFile['id']) => void
-  clearAllFiles?: () => void
-}
-
-export type FileUploaderType = (
-  options?: DropzoneOptions | undefined
-) => CustomDropzoneState
-
-export const useFileUploader: FileUploaderType = options => {
+export const useFileUploader: FileUploaderHook = options => {
+  const [filesWithBlob, setFilesWithBlob] = useState<FileWithPreview[]>([])
   const [files, setFiles] = useState<CustomFile[]>([])
-  const [dialogImage, setDialogImage] = useState<CustomFile | null>(null)
+  const [dialogImage, setDialogImage] = useState<FileWithPreview | null>(null)
   const [isCropping, setIsCropping] = useState(false)
 
   // Cropper states
@@ -75,9 +34,7 @@ export const useFileUploader: FileUploaderType = options => {
           rotation
         )) as string | null
 
-        console.log('donee', { croppedImage })
-        // Replace the original file with the cropped image
-        setFiles(prevFiles =>
+        setFilesWithBlob(prevFiles =>
           prevFiles.map(item =>
             item.file === dialogImage?.file
               ? { ...item, preview: croppedImage || '' }
@@ -116,7 +73,7 @@ export const useFileUploader: FileUploaderType = options => {
       }
       reader.onload = () => {
         // Do whatever you want with the file contents
-        setFiles(prevFiles => [
+        setFilesWithBlob(prevFiles => [
           ...prevFiles,
           {
             id: crypto.randomUUID(),
@@ -147,10 +104,29 @@ export const useFileUploader: FileUploaderType = options => {
   } = useDropzone({
     noClick: true,
     noKeyboard: true,
+    accept: options?.accept,
     onDrop,
     ...options,
+    disabled: options?.disabled || false,
     maxSize: calculateSize
   })
+
+  const acceptedFileTypesStr = useMemo(() => {
+    const acceptedFileTypes = options?.accept
+    if (acceptedFileTypes) {
+      const result = Object.keys(acceptedFileTypes)
+        .map(key => {
+          const extensions = acceptedFileTypes[key]
+          if (extensions.length === 0) {
+            return key
+          }
+          return [...extensions].join(', ')
+        })
+        .join(', ')
+      return result
+    }
+    return 'All files'
+  }, [options?.accept])
 
   const downloadFile = (file: File): void => {
     const url = URL.createObjectURL(file)
@@ -163,8 +139,8 @@ export const useFileUploader: FileUploaderType = options => {
     URL.revokeObjectURL(url)
   }
 
-  const removeFile = (id: CustomFile['id']): void => {
-    setFiles(prevFiles => {
+  const removeFile = (id: FileWithPreview['id']): void => {
+    setFilesWithBlob(prevFiles => {
       const preview = prevFiles.find(item => item.id === id)?.preview
       const filter = prevFiles.filter(item => item.id !== id)
       if (preview) {
@@ -177,17 +153,16 @@ export const useFileUploader: FileUploaderType = options => {
 
   // Cleanup function for object URLs
   const cleanupObjectURLs = useCallback(() => {
-    files.forEach(({ preview }) => {
+    filesWithBlob.forEach(({ preview }) => {
       URL.revokeObjectURL(preview)
     })
-  }, [files])
+  }, [filesWithBlob])
 
   const clearAllFiles = (): void => {
-    setFiles([])
+    setFilesWithBlob([])
     cleanupObjectURLs()
   }
 
-  // Cleanup object URLs when component unmounts
   useEffect(() => {
     return () => {
       cleanupObjectURLs()
@@ -195,9 +170,26 @@ export const useFileUploader: FileUploaderType = options => {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- Only run this on unmount
   }, [])
 
+  useEffect(() => {
+    const updateFiles = async (): Promise<void> => {
+      const updatedFiles = await Promise.all(
+        filesWithBlob.map(async item => {
+          const file = await convertBlobUrlToOriginalFileType(
+            item.preview,
+            item.file.name
+          )
+          return { id: item.id, file: file || item.file }
+        })
+      )
+      setFiles(updatedFiles)
+    }
+    void updateFiles()
+  }, [filesWithBlob])
+
   return {
     // Custom
-    acceptedFiles: files,
+    withBlobFiles: filesWithBlob,
+    files,
     dialogImage,
     setDialogImage,
     isCropping,
@@ -225,6 +217,12 @@ export const useFileUploader: FileUploaderType = options => {
     isFileDialogActive,
     isFocused,
     open,
-    rootRef
+    rootRef,
+
+    // Other states
+    disabled: options?.disabled || false,
+
+    // Some states
+    acceptedFileTypes: acceptedFileTypesStr
   }
 }
