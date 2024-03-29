@@ -1,6 +1,6 @@
 /* eslint-disable no-console -- TEMP */
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
+import { type FileRejection, useDropzone } from 'react-dropzone'
 import { type Area, type Point } from 'react-easy-crop'
 import { getCroppedImg } from './get-cropped-img'
 import type { CustomFile, FileUploaderHook, FileWithPreview } from './types'
@@ -9,6 +9,7 @@ import { bytesToMB, convertBlobUrlToOriginalFileType } from './helpers'
 export const useFileUploader: FileUploaderHook = options => {
   const [filesWithBlob, setFilesWithBlob] = useState<FileWithPreview[]>([])
   const [files, setFiles] = useState<CustomFile[]>([])
+  const [rejectedFiles, setRejectedFiles] = useState<FileRejection[]>([])
   const [dialogImage, setDialogImage] = useState<FileWithPreview | null>(null)
   const [isCropping, setIsCropping] = useState(false)
 
@@ -56,41 +57,44 @@ export const useFileUploader: FileUploaderHook = options => {
     return bytesToMB(10)
   }, [options?.maxSize])
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    acceptedFiles.forEach(file => {
-      const reader = new FileReader()
-      reader.onabort = () => {
-        console.error(`File reading of ${file.name} was aborted!`)
-      }
-      reader.onerror = () => {
-        console.error(`File reading of ${file.name} has failed!`)
-      }
-      reader.onloadstart = () => {
-        console.info(`File reading of ${file.name} was started...`)
-      }
-      reader.onprogress = () => {
-        console.info(`File reading of ${file.name} is in progress...`)
-      }
-      reader.onload = () => {
-        // Do whatever you want with the file contents
-        setFilesWithBlob(prevFiles => [
-          ...prevFiles,
-          {
-            id: crypto.randomUUID(),
-            file,
-            preview: URL.createObjectURL(file)
-          }
-        ])
-      }
-      reader.onloadend = () => {
-        console.info(`File reading of ${file.name} ends.`)
-      }
-      reader.readAsArrayBuffer(file)
-    })
-  }, [])
+  const onDrop = useCallback(
+    (acceptedFiles: File[], rejectFiles: FileRejection[]) => {
+      acceptedFiles.forEach(file => {
+        const reader = new FileReader()
+        reader.onabort = () => {
+          console.error(`File reading of ${file.name} was aborted!`)
+        }
+        reader.onerror = () => {
+          console.error(`File reading of ${file.name} has failed!`)
+        }
+        reader.onloadstart = () => {
+          console.info(`File reading of ${file.name} was started...`)
+        }
+        reader.onprogress = () => {
+          console.info(`File reading of ${file.name} is in progress...`)
+        }
+        reader.onload = () => {
+          // Do whatever you want with the file contents
+          setFilesWithBlob(prevFiles => [
+            ...prevFiles,
+            {
+              id: crypto.randomUUID(),
+              file,
+              preview: URL.createObjectURL(file)
+            }
+          ])
+          setRejectedFiles(rejectFiles)
+        }
+        reader.onloadend = () => {
+          console.info(`File reading of ${file.name} ends.`)
+        }
+        reader.readAsArrayBuffer(file)
+      })
+    },
+    []
+  )
 
   const {
-    fileRejections,
     getInputProps,
     getRootProps,
     inputRef,
@@ -160,6 +164,8 @@ export const useFileUploader: FileUploaderHook = options => {
 
   const clearAllFiles = (): void => {
     setFilesWithBlob([])
+    setFiles([])
+    setRejectedFiles([])
     cleanupObjectURLs()
   }
 
@@ -190,6 +196,7 @@ export const useFileUploader: FileUploaderHook = options => {
     // Custom
     withBlobFiles: filesWithBlob,
     files,
+    fileRejections: rejectedFiles,
     dialogImage,
     setDialogImage,
     isCropping,
@@ -207,7 +214,6 @@ export const useFileUploader: FileUploaderHook = options => {
     clearAllFiles,
 
     // Dropzone
-    fileRejections,
     getInputProps,
     getRootProps,
     inputRef,

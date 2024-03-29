@@ -4,6 +4,7 @@ import {
   ExternalLink,
   Image,
   Trash,
+  Trash2,
   UploadCloud
 } from 'lucide-react'
 import { Button } from '@utopia/radix-button'
@@ -77,21 +78,23 @@ function FileUploader({
             Choose File
           </Button>
         </div>
-        {withBlobFiles.length > 0 && (
+
+        {withBlobFiles.length > 0 ? (
           <div>
             <div className="flex items-center justify-between text-sm">
               <p>Selected Files:</p>
-              <button
+              <Button
                 disabled={disabled}
                 onClick={() => {
                   if (clearAllFiles) {
                     clearAllFiles()
                   }
                 }}
-                type="button"
+                size="xs"
+                variant="ghost"
               >
-                Clear all
-              </button>
+                <Trash2 className="h-4 w-4" />
+              </Button>
             </div>
             <ScrollArea className="h-40 w-full whitespace-nowrap pb-2">
               <div className="flex w-max items-center gap-x-2">
@@ -168,19 +171,25 @@ function FileUploader({
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
-        )}
-        <ul className="list-outside list-disc px-2 text-xs text-secondary">
-          {fileRejections.map(({ file, errors }) => (
-            <li key={file.name}>
-              {file.name} - {file.size} bytes
-              <ul className="text-danger ml-2 list-outside list-disc text-xs">
-                {errors.map(e => (
-                  <li key={e.code}>{e.message}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        ) : null}
+
+        {fileRejections.length > 0 ? (
+          <div>
+            <p className="text-sm">Rejected files:</p>
+            <ul className="list-outside list-disc px-4 text-xs text-secondary-foreground">
+              {fileRejections.map(({ file, errors }) => (
+                <li key={file.name}>
+                  {file.name} - {file.size} bytes
+                  <ul className="ml-2 list-outside list-disc text-xs text-destructive">
+                    {errors.map(e => (
+                      <li key={e.code}>{e.message}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
 
       <Dialog
