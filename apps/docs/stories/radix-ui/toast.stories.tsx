@@ -1,9 +1,9 @@
 import type { Meta } from '@storybook/react'
 import { Button } from '@utopia/radix-button'
-import { ToastAction, useToast } from '@utopia/radix-toast'
+import { ToastAction as Toast, useToast } from '@utopia/radix-toast'
 
 const meta: Meta = {
-  title: 'Toast'
+  component: Toast
 }
 
 export default meta
@@ -17,9 +17,7 @@ export function ToastDemo(): JSX.Element {
         toast({
           title: 'Scheduled: Catch up ',
           description: 'Friday, February 10, 2023 at 5:57 PM',
-          action: (
-            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-          )
+          action: <Toast altText="Goto schedule to undo">Undo</Toast>
         })
       }}
       variant="outline"
@@ -73,7 +71,7 @@ export function ToastWithAction(): JSX.Element {
         toast({
           title: 'Uh oh! Something went wrong.',
           description: 'There was a problem with your request.',
-          action: <ToastAction altText="Try again">Try again</ToastAction>
+          action: <Toast altText="Try again">Try again</Toast>
         })
       }}
       variant="outline"
@@ -93,7 +91,7 @@ export function ToastDestructive(): JSX.Element {
           variant: 'destructive',
           title: 'Uh oh! Something went wrong.',
           description: 'There was a problem with your request.',
-          action: <ToastAction altText="Try again">Try again</ToastAction>
+          action: <Toast altText="Try again">Try again</Toast>
         })
       }}
       variant="outline"

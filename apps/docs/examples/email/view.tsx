@@ -24,7 +24,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'
 import { Switch } from '@utopia/radix-switch'
 import { Label } from '@utopia/radix-label'
-import { RichtextEditor, useEditor } from '@utopia/radix-richtext-editor'
+import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
 import {
   DropdownMenu,
   DropdownMenuContent,

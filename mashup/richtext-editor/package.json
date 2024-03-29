@@ -1,5 +1,5 @@
 {
-  "name": "@utopia/radix-richtext-editor",
+  "name": "@utopia/richtext-editor",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

@@ -1,12 +1,12 @@
 import type { Meta } from '@storybook/react'
 import { Button } from '@utopia/radix-button'
-import { RichtextEditor, useEditor } from '@utopia/radix-richtext-editor'
+import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
 import { ScrollArea } from '@utopia/radix-scroll-area'
 import { CheckSquare, Copy } from 'lucide-react'
 import { Switch } from '@utopia/radix-switch'
 import { Label } from '@utopia/radix-label'
 import { useState } from 'react'
-import { useCopyToClipboard } from '../utils/hooks/use-copy-to-clipboard'
+import { useCopyToClipboard } from '../../utils/hooks/use-copy-to-clipboard'
 
 const meta: Meta<typeof RichtextEditor> = {
   component: RichtextEditor

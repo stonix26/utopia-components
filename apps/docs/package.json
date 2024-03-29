@@ -42,7 +42,7 @@
     "@utopia/radix-progress": "workspace:*",
     "@utopia/radix-radio-group": "workspace:*",
     "@utopia/radix-resizable": "workspace:*",
-    "@utopia/radix-richtext-editor": "workspace:*",
+    "@utopia/richtext-editor": "workspace:*",
     "@utopia/radix-scroll-area": "workspace:*",
     "@utopia/radix-select": "workspace:*",
     "@utopia/radix-separator": "workspace:*",

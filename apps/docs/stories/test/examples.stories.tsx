@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Email from '../examples/email'
+import Email from '../../examples/email'
 
 const meta: Meta<typeof Email> = {
-  component: Email
+  component: Email,
+  parameters: {
+    autodocs: false
+  }
 }
 
 export default meta
