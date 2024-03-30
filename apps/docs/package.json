@@ -10,7 +10,7 @@
     "preview-storybook": "serve storybook-static",
     "clean": "rm -rf .turbo && rm -rf node_modules",
     "lint": "eslint ./stories/*.stories.tsx",
-    "deploy:chromatic": "npx chromatic --project-token=chpt_656c695aa68b6ec"
+    "deploy:chromatic": "chromatic"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",

@@ -12,3 +12,7 @@ server/dist
 public/dist
 storybook-static/
 tsconfig.tsbuildinfo
+build-storybook.log
+chromatic.log
+chromatic-build-*.xml
+chromatic-diagnostics.json
