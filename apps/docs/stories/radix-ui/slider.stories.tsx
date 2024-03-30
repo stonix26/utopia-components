@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Slider } from '@utopia/radix-slider'
 import { useState } from 'react'

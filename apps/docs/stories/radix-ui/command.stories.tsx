@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import {
   Calculator,
@@ -75,9 +75,9 @@ export const Default: Story = {
 }
 
 function CommandDialogComponent(): JSX.Element {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const down = (e: KeyboardEvent): void => {
       if (e.key === 'j' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()

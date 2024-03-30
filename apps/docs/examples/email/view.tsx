@@ -43,7 +43,7 @@ import {
 import ButtonIcon from './components/button-icon'
 import { useMail } from './hooks'
 
-function EmailView(): React.JSX.Element {
+function EmailView(): JSX.Element {
   const { state, actions } = useMail()
   const [user, setUser] = useState(USER_SELECT[0].value)
   const editor = useEditor({ editable: true })

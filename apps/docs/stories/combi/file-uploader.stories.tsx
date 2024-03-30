@@ -1,5 +1,5 @@
 /* eslint-disable no-console -- TEMP */
-import { useState } from 'react'
+import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import FileUploader, {
   type FileUploaderProps,

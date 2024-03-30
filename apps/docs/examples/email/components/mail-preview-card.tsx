@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
+import React, { ComponentProps } from 'react'
 import { Badge } from '@utopia/radix-badge'
 import type { InboxPreviewInterface } from '../types'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
-function MailPreviewCard(props: InboxPreviewInterface): React.JSX.Element {
+function MailPreviewCard(props: InboxPreviewInterface): JSX.Element {
   return (
     <button
       className="flex w-full flex-col gap-y-2 rounded-md border border-border p-4 hover:bg-accent"

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import {
   ArrowUpCircle,
@@ -64,8 +64,8 @@ const frameworks = [
 ]
 
 function ComboboxComponent(): JSX.Element {
-  const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState('')
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState('')
 
   return (
     <Popover onOpenChange={setOpen} open={open}>
@@ -157,10 +157,8 @@ const statuses: Status[] = [
 ]
 
 function ComboboxPopoverComponent(): JSX.Element {
-  const [open, setOpen] = React.useState(false)
-  const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
-    null
-  )
+  const [open, setOpen] = useState(false)
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null)
 
   return (
     <div className="flex items-center space-x-4">
@@ -235,8 +233,8 @@ const labels = [
 ]
 
 function ComboboxDropdownMenuComponent(): JSX.Element {
-  const [label, setLabel] = React.useState('feature')
-  const [open, setOpen] = React.useState(false)
+  const [label, setLabel] = useState('feature')
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">

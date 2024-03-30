@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ChevronsUpDown } from 'lucide-react'
 import { Button } from '@utopia/radix-button'
@@ -15,7 +15,7 @@ const meta: Meta<typeof Collapsible> = {
 export default meta
 
 function CollapsibleDemo(): JSX.Element {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <Collapsible

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { type HTMLAttributes, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { addDays, format } from 'date-fns'
 import type { DateRange } from 'react-day-picker'
@@ -29,7 +29,7 @@ import {
 } from '@utopia/radix-form'
 
 function DatePickerDemo(): JSX.Element {
-  const [date, setDate] = React.useState<Date>()
+  const [date, setDate] = useState<Date>()
 
   return (
     <Popover>
@@ -59,12 +59,12 @@ function DatePickerDemo(): JSX.Element {
 
 function DatePickerWithRange({
   className
-}: React.HTMLAttributes<HTMLDivElement>): JSX.Element {
+}: HTMLAttributes<HTMLDivElement>): JSX.Element {
   const currentDate = new Date()
   const year = currentDate.getFullYear()
   const month = currentDate.getMonth() // Note: Months are zero-based (0 for January)
   const day = currentDate.getDate()
-  const [date, setDate] = React.useState<DateRange | undefined>({
+  const [date, setDate] = useState<DateRange | undefined>({
     from: new Date(year, month, day),
     to: addDays(new Date(year, month, day), 16)
   })
@@ -117,7 +117,7 @@ function DatePickerWithRange({
 }
 
 function DatePickerWithPresets(): JSX.Element {
-  const [date, setDate] = React.useState<Date>()
+  const [date, setDate] = useState<Date>()
 
   return (
     <Popover>

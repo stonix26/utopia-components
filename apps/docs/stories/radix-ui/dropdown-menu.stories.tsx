@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { type ComponentPropsWithRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import {
   Cloud,
@@ -133,14 +133,12 @@ export const Default: Story = {
   )
 }
 
-type Checked = React.ComponentPropsWithRef<
-  typeof DropdownMenuCheckboxItem
->['checked']
+type Checked = ComponentPropsWithRef<typeof DropdownMenuCheckboxItem>['checked']
 
 function DropdownMenuCheckboxes(): JSX.Element {
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
-  const [showPanel, setShowPanel] = React.useState<Checked>(false)
+  const [showStatusBar, setShowStatusBar] = useState<Checked>(true)
+  const [showActivityBar, setShowActivityBar] = useState<Checked>(false)
+  const [showPanel, setShowPanel] = useState<Checked>(false)
 
   return (
     <DropdownMenu>
@@ -179,7 +177,7 @@ export const Checkboxes: Story = {
 }
 
 function DropdownMenuRadioGroupDemo(): JSX.Element {
-  const [position, setPosition] = React.useState('bottom')
+  const [position, setPosition] = useState('bottom')
 
   return (
     <DropdownMenu>

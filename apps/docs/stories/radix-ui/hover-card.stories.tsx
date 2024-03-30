@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { CalendarDays } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'

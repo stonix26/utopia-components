@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Bold, Italic, Underline } from 'lucide-react'
 import { ToggleGroup, ToggleGroupItem } from '@utopia/radix-toggle-group'

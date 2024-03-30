@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Select,
   SelectContent,
@@ -6,7 +7,6 @@ import {
   SelectTrigger,
   SelectValue
 } from '@utopia/radix-select'
-import React from 'react'
 import type { UserInterface } from '../types'
 
 interface UserSelectProps {

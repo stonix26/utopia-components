@@ -4,7 +4,7 @@ import { Input } from '@utopia/radix-input'
 import { ScrollArea } from '@utopia/radix-scroll-area'
 import type { TabsContentProps } from '../types'
 
-function TabsContent({ children, value }: TabsContentProps): React.JSX.Element {
+function TabsContent({ children, value }: TabsContentProps): JSX.Element {
   return (
     <TabsContentPrimitive value={value}>
       <div className="flex h-fit items-center justify-center px-4 pb-4 pt-2">

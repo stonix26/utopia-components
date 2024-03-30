@@ -20,7 +20,7 @@ export interface MailContextInterface {
 
 export const MailContext = createContext<MailContextInterface | null>(null)
 
-function Provider({ children }: { children: ReactNode }): React.JSX.Element {
+function Provider({ children }: { children: ReactNode }): JSX.Element {
   const [inbox, setInbox] = useState<InboxPreviewInterface[] | undefined>(
     undefined
   )

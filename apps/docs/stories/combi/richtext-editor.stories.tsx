@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta } from '@storybook/react'
 import { Button } from '@utopia/radix-button'
 import { RichtextEditor, useEditor } from '@utopia/richtext-editor'
