@@ -11,7 +11,8 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "preview": "turbo run preview",
-    "preview-storybook": "turbo run preview-storybook"
+    "preview-storybook": "turbo run preview-storybook",
+    "deploy:chromatic": "turbo run deploy:chromatic"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",

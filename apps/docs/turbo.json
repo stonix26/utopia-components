@@ -8,6 +8,10 @@
       "dependsOn": ["^build"],
       "persistent": true
     },
+    "deploy:chromatic": {
+      "dependsOn": ["^build"],
+      "persistent": true
+    },
     "storybook": {
       "cache": false,
       "persistent": true
