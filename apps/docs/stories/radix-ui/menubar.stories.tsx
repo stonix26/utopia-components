@@ -17,7 +17,8 @@ import {
 } from '@utopia/radix-menubar'
 
 const meta: Meta<typeof Menubar> = {
-  component: Menubar
+  component: Menubar,
+  tags: ['autodocs']
 }
 
 export default meta

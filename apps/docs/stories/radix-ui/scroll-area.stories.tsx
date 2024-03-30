@@ -4,7 +4,8 @@ import { ScrollArea } from '@utopia/radix-scroll-area'
 import { Separator } from '@utopia/radix-separator'
 
 const meta: Meta<typeof ScrollArea> = {
-  component: ScrollArea
+  component: ScrollArea,
+  tags: ['autodocs']
 }
 
 export default meta

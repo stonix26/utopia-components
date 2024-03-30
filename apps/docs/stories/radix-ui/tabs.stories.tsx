@@ -14,7 +14,8 @@ import { Label } from '@utopia/radix-label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@utopia/radix-tabs'
 
 const meta: Meta<typeof Tabs> = {
-  component: Tabs
+  component: Tabs,
+  tags: ['autodocs']
 }
 
 export default meta

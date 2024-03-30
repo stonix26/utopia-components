@@ -4,7 +4,8 @@ import { Bold, Italic, Underline } from 'lucide-react'
 import { Toggle } from '@utopia/radix-toggle'
 
 const meta: Meta<typeof Toggle> = {
-  component: Toggle
+  component: Toggle,
+  tags: ['autodocs']
 }
 
 export default meta

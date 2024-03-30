@@ -14,7 +14,8 @@ import {
 import { Button } from '@utopia/radix-button'
 
 const meta: Meta<typeof AlertDialog> = {
-  component: AlertDialog
+  component: AlertDialog,
+  tags: ['autodocs']
 }
 
 export default meta

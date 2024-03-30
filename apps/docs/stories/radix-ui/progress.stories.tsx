@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Progress } from '@utopia/radix-progress'
 
 const meta: Meta<typeof Progress> = {
-  component: Progress
+  component: Progress,
+  tags: ['autodocs']
 }
 
 export default meta

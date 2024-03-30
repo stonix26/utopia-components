@@ -17,7 +17,8 @@ import {
 } from '@utopia/radix-navigation-menu'
 
 const meta: Meta<typeof NavigationMenu> = {
-  component: NavigationMenu
+  component: NavigationMenu,
+  tags: ['autodocs']
 }
 
 export default meta

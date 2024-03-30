@@ -4,7 +4,8 @@ import { Label } from '@utopia/radix-label'
 import { RadioGroup, RadioGroupItem } from '@utopia/radix-radio-group'
 
 const meta: Meta<typeof RadioGroup> = {
-  component: RadioGroup
+  component: RadioGroup,
+  tags: ['autodocs']
 }
 
 export default meta

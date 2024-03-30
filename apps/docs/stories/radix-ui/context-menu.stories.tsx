@@ -17,7 +17,8 @@ import {
 } from '@utopia/radix-context-menu'
 
 const meta: Meta<typeof ContextMenu> = {
-  component: ContextMenu
+  component: ContextMenu,
+  tags: ['autodocs']
 }
 
 export default meta

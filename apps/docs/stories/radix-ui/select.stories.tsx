@@ -12,7 +12,8 @@ import {
 } from '@utopia/radix-select'
 
 const meta: Meta<typeof Select> = {
-  component: Select
+  component: Select,
+  tags: ['autodocs']
 }
 
 export default meta

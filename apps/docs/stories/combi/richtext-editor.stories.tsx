@@ -10,7 +10,8 @@ import { useState } from 'react'
 import { useCopyToClipboard } from '../../utils/hooks/use-copy-to-clipboard'
 
 const meta: Meta<typeof RichtextEditor> = {
-  component: RichtextEditor
+  component: RichtextEditor,
+  tags: ['autodocs']
 }
 
 export default meta

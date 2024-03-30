@@ -4,7 +4,8 @@ import { Bold, Italic, Underline } from 'lucide-react'
 import { ToggleGroup, ToggleGroupItem } from '@utopia/radix-toggle-group'
 
 const meta: Meta<typeof ToggleGroup> = {
-  component: ToggleGroup
+  component: ToggleGroup,
+  tags: ['autodocs']
 }
 
 export default meta

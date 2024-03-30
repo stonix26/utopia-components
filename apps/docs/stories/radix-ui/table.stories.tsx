@@ -12,7 +12,8 @@ import {
 } from '@utopia/radix-table'
 
 const meta: Meta<typeof Table> = {
-  component: Table
+  component: Table,
+  tags: ['autodocs']
 }
 
 export default meta

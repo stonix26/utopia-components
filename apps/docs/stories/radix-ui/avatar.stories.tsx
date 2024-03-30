@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar, AvatarFallback, AvatarImage } from '@utopia/radix-avatar'
 
 const meta: Meta<typeof Avatar> = {
-  component: Avatar
+  component: Avatar,
+  tags: ['autodocs']
 }
 
 export default meta

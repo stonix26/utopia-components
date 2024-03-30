@@ -7,7 +7,8 @@ import {
 } from '@utopia/radix-resizable'
 
 const meta: Meta<typeof ResizablePanel> = {
-  component: ResizablePanel
+  component: ResizablePanel,
+  tags: ['autodocs']
 }
 
 export default meta

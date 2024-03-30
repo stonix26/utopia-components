@@ -4,7 +4,8 @@ import { Alert, AlertDescription, AlertTitle } from '@utopia/radix-alert'
 import { Terminal } from 'lucide-react'
 
 const meta: Meta<typeof Alert> = {
-  component: Alert
+  component: Alert,
+  tags: ['autodocs']
 }
 
 export default meta

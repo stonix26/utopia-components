@@ -4,7 +4,8 @@ import { Label } from '@utopia/radix-label'
 import { Checkbox } from '@utopia/radix-checkbox'
 
 const meta: Meta<typeof Label> = {
-  component: Label
+  component: Label,
+  tags: ['autodocs']
 }
 
 export default meta

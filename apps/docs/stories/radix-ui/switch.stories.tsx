@@ -4,7 +4,8 @@ import { Label } from '@utopia/radix-label'
 import { Switch } from '@utopia/radix-switch'
 
 const meta: Meta<typeof Switch> = {
-  component: Switch
+  component: Switch,
+  tags: ['autodocs']
 }
 
 export default meta

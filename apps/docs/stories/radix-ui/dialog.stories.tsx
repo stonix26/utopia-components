@@ -16,7 +16,8 @@ import { Label } from '@utopia/radix-label'
 import { Copy } from 'lucide-react'
 
 const meta: Meta<typeof Dialog> = {
-  component: Dialog
+  component: Dialog,
+  tags: ['autodocs']
 }
 
 export default meta

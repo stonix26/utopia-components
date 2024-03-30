@@ -8,7 +8,8 @@ import {
 } from '@utopia/radix-accordion'
 
 const meta: Meta<typeof Accordion> = {
-  component: Accordion
+  component: Accordion,
+  tags: ['autodocs']
 }
 
 export default meta

@@ -4,6 +4,7 @@ import { Button } from '@utopia/rac-button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  tags: ['autodocs'],
   args: {
     type: 'button',
     variant: 'default',

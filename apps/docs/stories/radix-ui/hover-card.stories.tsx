@@ -10,7 +10,8 @@ import {
 } from '@utopia/radix-hover-card'
 
 const meta: Meta<typeof HoverCard> = {
-  component: HoverCard
+  component: HoverCard,
+  tags: ['autodocs']
 }
 
 export default meta

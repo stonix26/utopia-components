@@ -23,7 +23,7 @@ const config = {
   docs: {
     //👇 See the table below for the list of supported options
     autodocs: 'tag',
-    defaultName: 'Documentation'
+    defaultName: 'Docs'
   }
 }
 

@@ -4,7 +4,8 @@ import { Button } from '@utopia/radix-button'
 import { ToastAction as Toast, useToast } from '@utopia/radix-toast'
 
 const meta: Meta = {
-  component: Toast
+  component: Toast,
+  tags: ['autodocs']
 }
 
 export default meta

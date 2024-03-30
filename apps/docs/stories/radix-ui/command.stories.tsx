@@ -21,7 +21,8 @@ import {
 } from '@utopia/radix-command'
 
 const meta: Meta<typeof Command> = {
-  component: Command
+  component: Command,
+  tags: ['autodocs']
 }
 
 export default meta

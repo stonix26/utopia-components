@@ -15,7 +15,8 @@ function CalendarComponent(): JSX.Element {
 }
 
 const meta: Meta<typeof Calendar> = {
-  component: Calendar
+  component: Calendar,
+  tags: ['autodocs']
 }
 
 export default meta

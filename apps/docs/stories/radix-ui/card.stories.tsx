@@ -20,7 +20,8 @@ import {
 } from '@utopia/radix-select'
 
 const meta: Meta<typeof Card> = {
-  component: Card
+  component: Card,
+  tags: ['autodocs']
 }
 
 export default meta

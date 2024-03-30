@@ -9,7 +9,8 @@ import {
 } from '@utopia/radix-collapsible'
 
 const meta: Meta<typeof Collapsible> = {
-  component: Collapsible
+  component: Collapsible,
+  tags: ['autodocs']
 }
 
 export default meta

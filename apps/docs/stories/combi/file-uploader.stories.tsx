@@ -10,7 +10,8 @@ import { UploadCloud } from 'lucide-react'
 import axios from 'axios'
 
 const meta: Meta<typeof FileUploader> = {
-  component: FileUploader
+  component: FileUploader,
+  tags: ['autodocs']
 }
 
 export default meta

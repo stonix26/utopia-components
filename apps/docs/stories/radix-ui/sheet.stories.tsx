@@ -15,7 +15,8 @@ import {
 } from '@utopia/radix-sheet'
 
 const meta: Meta<typeof Sheet> = {
-  component: Sheet
+  component: Sheet,
+  tags: ['autodocs']
 }
 
 export default meta

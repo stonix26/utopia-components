@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Separator } from '@utopia/radix-separator'
 
 const meta: Meta<typeof Separator> = {
-  component: Separator
+  component: Separator,
+  tags: ['autodocs']
 }
 
 export default meta

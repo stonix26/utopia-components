@@ -17,7 +17,8 @@ import {
 } from '@utopia/radix-form'
 
 const meta: Meta<typeof Input> = {
-  component: Input
+  component: Input,
+  tags: ['autodocs']
 }
 
 export default meta

@@ -6,7 +6,8 @@ import { Label } from '@utopia/radix-label'
 import { Popover, PopoverContent, PopoverTrigger } from '@utopia/radix-popover'
 
 const meta: Meta<typeof Popover> = {
-  component: Popover
+  component: Popover,
+  tags: ['autodocs']
 }
 
 export default meta

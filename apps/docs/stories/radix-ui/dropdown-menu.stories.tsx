@@ -36,7 +36,8 @@ import {
 } from '@utopia/radix-dropdown-menu'
 
 const meta: Meta<typeof DropdownMenu> = {
-  component: DropdownMenu
+  component: DropdownMenu,
+  tags: ['autodocs']
 }
 
 export default meta

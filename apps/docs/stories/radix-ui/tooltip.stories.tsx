@@ -10,7 +10,8 @@ import {
 } from '@utopia/radix-tooltip'
 
 const meta: Meta<typeof Tooltip> = {
-  component: Tooltip
+  component: Tooltip,
+  tags: ['autodocs']
 }
 
 export default meta

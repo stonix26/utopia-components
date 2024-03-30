@@ -233,7 +233,8 @@ function DatePickerForm(): JSX.Element {
 }
 
 const meta: Meta<typeof DatePickerDemo> = {
-  component: DatePickerDemo
+  component: DatePickerDemo,
+  tags: ['autodocs']
 }
 
 export default meta

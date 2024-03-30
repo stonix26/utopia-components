@@ -17,7 +17,8 @@ import { Button } from '@utopia/radix-button'
 import { toast } from '@utopia/radix-toast'
 
 const meta: Meta<typeof Checkbox> = {
-  component: Checkbox
+  component: Checkbox,
+  tags: ['autodocs']
 }
 
 export default meta

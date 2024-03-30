@@ -4,6 +4,7 @@ import { Button } from '@utopia/radix-button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     type: {
       control: { type: 'radio' },

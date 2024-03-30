@@ -113,7 +113,8 @@ function ComboboxComponent(): JSX.Element {
 }
 
 const meta: Meta<typeof ComboboxComponent> = {
-  component: ComboboxComponent
+  component: ComboboxComponent,
+  tags: ['autodocs']
 }
 
 export default meta

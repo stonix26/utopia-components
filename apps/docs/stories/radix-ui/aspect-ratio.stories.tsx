@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { AspectRatio } from '@utopia/radix-aspect-ratio'
 
 const meta: Meta<typeof AspectRatio> = {
-  component: AspectRatio
+  component: AspectRatio,
+  tags: ['autodocs']
 }
 
 export default meta
